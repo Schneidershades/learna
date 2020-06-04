@@ -19,6 +19,7 @@ class CreateTopicsTable extends Migration
             $table->integer('parent_topic_id')->index()->unsigned();
             $table->integer('name')->index()->unsigned();
             $table->integer('description')->index()->unsigned();
+            $table->integer('seconds')->index()->unsigned();
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ class CreateParticipantsTable extends Migration
     {
         Schema::create('participants', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned()->index();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->text('profession')->nullable();
             $table->text('official_email')->nullable();
             $table->text('instagram')->nullable();

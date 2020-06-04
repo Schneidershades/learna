@@ -3,42 +3,27 @@
 namespace App\Http\Controllers\Api\Instructor;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Instructor;
+use App\Http\Requests\Instructor\InstructorFormRequest;
 
 class InstructorController extends Controller
 {
-    public function index()
+    public function update(InstructorFormRequest $request, $id)
     {
-        //
-    }
+        $instructor = Instructor::where('user_id', $id)->first();
 
-    public function create()
-    {
-        //
-    }
+        $requestColumns = array_keys($request->all());
+        
+        $tableColumns = $this->getColumns($instructor->getTable());
 
-    public function store(Request $request)
-    {
-        //
-    }
+        $fields = array_intersect($requestColumns, $tableColumns);
 
-    public function show($id)
-    {
-        //
-    }
+        foreach($fields as $field){
+            $instructor->setAttribute($field, $request[$field]);
+        }
 
-    public function edit($id)
-    {
-        //
-    }
+        $instructor->save();
 
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
+        return $instructor;
     }
 }
