@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTopicsTable extends Migration
+class CreateMultipleChoicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateTopicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('topics', function (Blueprint $table) {
+        Schema::create('multiple_choices', function (Blueprint $table) {
             $table->id();
-            $table->integer('course_id')->index()->unsigned();
-            $table->integer('parent_topic_id')->index()->unsigned();
-            $table->integer('name')->index()->unsigned();
-            $table->integer('description')->index()->unsigned();
+            $table->integer('quiz_id')->index()->unsigned();
+            $table->string('option')->nullable();
+            $table->boolean('correct_answer')->default(false);
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateTopicsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('topics');
+        Schema::dropIfExists('multiple_choices');
     }
 }

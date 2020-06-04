@@ -15,19 +15,20 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->string('course_name')->nullable();
-            $table->text('course_banner')->nullable();
-            $table->text('course_intro_link')->nullable();
-            $table->string('course_short_description')->nullable();
-            $table->string('course_long_description')->nullable();
-            $table->string('course_hightlight_links')->nullable();
-            $table->string('course_testimonial_links')->nullable();
-            $table->date('course_start_date')->nullable();
-            $table->date('course_end_date')->nullable();
-            $table->date('course_type')->nullable();
-            $table->string('course_duration')->nullable();
-            $table->double('course_price')->nullable();
-            $table->double('course_availablilty')->nullable();
+            $table->integer('instructor_id')->unsigned()->index();
+            $table->string('name')->nullable();
+            $table->text('banner')->nullable();
+            $table->text('intro_link')->nullable();
+            $table->string('short_description')->nullable();
+            $table->string('long_description')->nullable();
+            $table->string('hightlight_links')->nullable();
+            $table->string('testimonial_links')->nullable();
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
+            $table->date('type')->nullable();
+            $table->string('duration')->nullable();
+            $table->double('price')->nullable();
+            $table->double('availablilty')->nullable();
             $table->timestamps();
         });
     }
