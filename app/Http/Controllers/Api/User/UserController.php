@@ -45,7 +45,14 @@ class UserController extends ApiController
 
     public function update(UserUpdateFormRequest $request, $id){
         $user = User::find(auth()->user()->id);
-        
+
+        $tableColumns = $this->getColumns($user->getTable());
+
+        $fields = array_intersect($requestColumns, $tableColumns);
+
+        foreach($fields as $field){
+            $user->setAttribute($field, $request[$field]);
+        }
         $user->save();
     }
 

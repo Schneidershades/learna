@@ -9,4 +9,10 @@ use App\Http\Controllers\Controller;
 class ApiController extends Controller
 {
     use ApiResponser;
+
+    public function getColumns($table)
+    {       
+        $columns = Schema::getColumnListing($table);
+        return $columns;
+    }
 }
