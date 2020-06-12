@@ -11,21 +11,47 @@ use Auth;
 
 class UserController extends ApiController
 {
+     /**
+     * @OA\Post(
+     *      path="/api/v1/user/signup",
+     *      operationId="signUp",
+     *      tags={"authentication"},
+     *      summary="Sign Up a new user",
+     *      description="Returns a newly registered user data",
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/UserRegistrationFormRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful signup",
+     *          @OA\MediaType(
+     *             mediaType="application/json",
+     *         ),
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     * )
+     */
     public function register(UserRegistrationFormRequest $request)
     {
         $requestColumns = array_keys($request->all());
 
-        $user = new User;
+        $model = new User;
+        
+        $this->requestAndDbIntersection($request, $model, []);
 
-        $tableColumns = $this->getColumns($user->getTable());
-
-        $fields = array_intersect($requestColumns, $tableColumns);
-
-        foreach($fields as $field){
-            $user->setAttribute($field, $request[$field]);
-        }
-
-        $user->save();
+        $model->save();
 
         if(!$token = auth()->attempt($request->only(['email', 'password']))){
             return $this->errorResponse('unauthenticated', 401);
@@ -34,6 +60,38 @@ class UserController extends ApiController
         return $this->respondWithToken($token);
     }
 
+     /**
+    * @OA\Post(
+    *      path="/api/v1/user/login",
+    *      operationId="signIn",
+    *      tags={"authentication"},
+    *      summary="Sign In a registered user",
+    *      description="Returns a newly registered user data",
+    *      @OA\RequestBody(
+    *          required=true,
+    *          @OA\JsonContent(ref="#/components/schemas/UserLoginFormRequest")
+    *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="Unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    * )
+    */
     public function login(UserLoginFormRequest $request)
     {
         if(!$token = Auth::attempt($request->only(['email', 'password']))){
@@ -43,27 +101,116 @@ class UserController extends ApiController
         return $this->respondWithToken($token);
     }
 
+    /**
+    * @OA\Post(
+    *      path="/api/v1/user/profile",
+    *      operationId="updateUserProfile",
+    *      tags={"authentication"},
+    *      summary="Profile of a registered user",
+    *      description="Profile of a registered user",
+    *      @OA\RequestBody(
+    *          required=true,
+    *          @OA\JsonContent(ref="#/components/schemas/UserUpdateFormRequest")
+    *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="Unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearer": {}} },
+    * )
+    */
     public function update(UserUpdateFormRequest $request, $id){
-        $user = User::find(auth()->user()->id);
+                                                                    
+        $model = User::find(auth()->user()->id);
 
-        $tableColumns = $this->getColumns($user->getTable());
+        $this->requestAndDbIntersection($request, $model, []);
 
-        $fields = array_intersect($requestColumns, $tableColumns);
-
-        foreach($fields as $field){
-            $user->setAttribute($field, $request[$field]);
-        }
-        $user->save();
+        $model->save();
     }
+
+
+    /**
+    * @OA\Post(
+    *      path="/api/v1/user/logout",
+    *      operationId="userLogout",
+    *      tags={"authentication"},
+    *      summary="Logout a registered user",
+    *      description="Logout a registered user",
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="Unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearer": {}} },
+    * )
+    */
 
     public function logout()
     {
         auth()->logout();
     }
 
+    /**
+    * @OA\Get(
+    *      path="/api/v1/user/profile",
+    *      operationId="userProfile",
+    *      tags={"authentication"},
+    *      summary="Profile of a registered user",
+    *      description="Profile of a registered user",
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="Unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearer": {}} },
+    * )
+    */
     public function profile(){
-        $user = auth()->user();
-        return $this->showMessage($user, 201);
+        $model = auth()->user();
+        return $this->showMessage($model, 201);
     }
 
 }

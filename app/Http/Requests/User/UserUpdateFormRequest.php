@@ -4,6 +4,16 @@ namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+/**
+ * @OA\Schema(
+ *      title="User Update Form Request Fields",
+ *      description="User Update request body data",
+ *      type="object",
+ *      required={"first_name"}
+ * )
+ */
+
 class UserUpdateFormRequest extends FormRequest
 {
     /**

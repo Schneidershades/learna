@@ -2,58 +2,238 @@
 
 namespace App\Http\Controllers\Api\Instructor;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Course;
+use App\Http\Controllers\Api\ApiController;
+use App\Http\Requests\Instructor\CourseCreateFormRequest;
+use App\Http\Requests\Instructor\CourseUpdateFormRequest;
 
-class CourseController extends Controller
+class CourseController extends ApiController
 {
+    /**
+    * @OA\Get(
+    *      path="/api/v1/instructor/instructor-course",
+    *      operationId="allCourses",
+    *      tags={"instructor"},
+    *      summary="Show all courses of an instructor",
+    *      description="Show all courses of an instructor",
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="Unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
+   
     public function index()
     {
-        return auth()->user()->instructor()->courses;
+        return $this->showAll(Course::where('instructor_id', auth()->user()->instructor->id)->get());
     }
 
-    public function store(Request $request)
+     /**
+    * @OA\Post(
+    *      path="/api/v1/instructor/instructor-course",
+    *      operationId="createCourse",
+    *      tags={"instructor"},
+    *      summary="create an instructor's course ",
+    *      description="create an instructor's course ",
+    *      @OA\RequestBody(
+    *          required=true,
+    *          @OA\JsonContent(ref="#/components/schemas/CourseCreateFormRequest")
+    *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="Unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
+    public function store(CourseCreateFormRequest $request)
     {
-        $requestColumns = array_keys($request->all());
+        $model = new Course;
 
-        $course = new Course;
+        $this->requestAndDbIntersection($request, $model, []);
 
-        $tableColumns = $this->getColumns($course->getTable());
+        $model->save();
 
-        $fields = array_intersect($requestColumns, $tableColumns);
-
-        foreach($fields as $field){
-            $course->setAttribute($field, $request[$field]);
-        }
-
-        return $course;
+        return $this->showMessage('course created');
     }
 
+     /**
+    * @OA\Get(
+    *      path="/api/v1/instructor/instructor-course/{id}",
+    *      operationId="showCourse",
+    *      tags={"instructor"},
+    *      summary="show an instructor's course details ",
+    *      description="show an instructor's course details ",
+    *      
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Course ID",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="Unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
+   
     public function show($id)
     {
-        return Course::findOrFail($id);
+        return $this->showOne(Course::findOrFail($id), 201);
     }
 
-    public function update(Request $request, $id)
+      /**
+    * @OA\Put(
+    *      path="/api/v1/instructor/instructor-course/{id}",
+    *      operationId="updateCourse",
+    *      tags={"instructor"},
+    *      summary="update an instructor's course ",
+    *      description="update an instructor's course ",
+    *      
+    *      @OA\RequestBody(
+    *          required=true,
+    *          @OA\JsonContent(ref="#/components/schemas/CourseCreateFormRequest")
+    *      ),
+    *      
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Course ID",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="Unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
+   
+    public function update(CourseUpdateFormRequest $request, $id)
     {
-        $course = Course::findOrFail($id);
+        $model = Course::findOrFail($id);
 
-        $requestColumns = array_keys($request->all());
-        
-        $tableColumns = $this->getColumns($table->getTable());
+        $this->requestAndDbIntersection($request, $model, []);
 
-        $fields = array_intersect($requestColumns, $tableColumns);
+        $model->save();
 
-        foreach($fields as $field){
-            $course->setAttribute($field, $request[$field]);
-        }
-
-        return $course;
+        return $this->showMessage('course updated');
     }
+
+     /**
+    * @OA\Delete(
+    *      path="/api/v1/instructor/instructor-course/{id}",
+    *      operationId="deleteCourse",
+    *      tags={"instructor"},
+    *      summary="delete an instructor's course ",
+    *      description="delete an instructor's course ",
+    *      
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Course ID",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="Unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
 
     public function destroy($id)
     {
-        $course = Course::findOrFail($id);
-        $course->delete();
+        $model = Course::findOrFail($id);
+        $model->delete();
+        return $this->showMessage('course deleted');
     }
 }

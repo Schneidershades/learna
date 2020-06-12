@@ -5,19 +5,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {       
     Route::group(['prefix' => 'user', 'namespace' => 'Api\User'], function(){
-		Route::post('register', 'UserController@register')->name('user-register');
-    	Route::post('login', 'UserController@login')->name('user-login');
-    	Route::post('logout', 'UserController@logout')->name('user-logout');
+		Route::post('register', 'UserController@register');
+    	Route::post('login', 'UserController@login');
+    	Route::post('logout', 'UserController@logout');
+        Route::get('logout', 'UserController@profile');
+        Route::put('update', 'UserController@update');
 	});
 
 	Route::group(['prefix' => 'instructor', 'namespace' => 'Api\Instructor'], function(){
-		Route::resource('course', 'CourseController');
-    	Route::resource('instructor', 'InstructorController');
-    	Route::resource('multiple-choice', 'MultipleChoiceController');
-    	Route::resource('project', 'ProjectController');
-    	Route::resource('quiz', 'QuizController');
-    	Route::resource('material', 'TopicMaterialController');
-    	Route::resource('topic', 'TopicController');
+		Route::resource('instructor-course', 'CourseController');
+    	Route::resource('instructor-profile', 'InstructorController');
+    	Route::resource('instructor-multiple-choice', 'MultipleChoiceController');
+    	Route::resource('instructor-project', 'ProjectController');
+    	Route::resource('instructor-quiz', 'QuizController');
+    	Route::resource('instructor-material', 'TopicMaterialController');
+    	Route::resource('instructor-topic', 'TopicController');
 	});
 });
 

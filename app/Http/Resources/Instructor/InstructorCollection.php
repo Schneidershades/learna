@@ -14,6 +14,8 @@ class InstructorCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'data' => InstructorResource::collection($this->collection)
+        ];
     }
 }

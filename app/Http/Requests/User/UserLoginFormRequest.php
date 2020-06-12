@@ -4,8 +4,40 @@ namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+/**
+ * @OA\Schema(
+ *      title="Sign in Form Request Fields",
+ *      description="sign in request body data",
+ *      type="object",
+ *      required={"email"}
+ * )
+ */
+
 class UserLoginFormRequest extends FormRequest
 {
+    /**
+     * @OA\Property(
+     *      title="User email",
+     *      description="Email of the user",
+     *      example="info@hdp.com"
+     * )
+     *
+     * @var string
+     */
+    private $email;
+
+    /**
+     * @OA\Property(
+     *      title="User password",
+     *      description="Password of the user",
+     *      example="password"
+     * )
+     *
+     * @var string
+     */
+    private $password;
+    
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,7 +56,8 @@ class UserLoginFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'email' => 'required|string|email',
+            'password' => 'required|string',
         ];
     }
 }

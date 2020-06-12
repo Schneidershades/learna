@@ -15,7 +15,7 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('instructor_id')->constrained()->onDelete('cascade');
             $table->string('name')->nullable();
             $table->text('banner')->nullable();
             $table->text('intro_link')->nullable();
@@ -23,12 +23,12 @@ class CreateCoursesTable extends Migration
             $table->string('long_description')->nullable();
             $table->string('highlight_links')->nullable();
             $table->string('testimonial_links')->nullable();
-            $table->date('start_date')->nullable();
-            $table->date('end_date')->nullable();
-            $table->date('type')->nullable();
+            $table->string('start_date')->nullable();
+            $table->string('end_date')->nullable();
+            $table->string('type')->nullable();
             $table->integer('duration')->nullable();
             $table->double('price')->nullable();
-            $table->double('availablilty')->nullable();
+            $table->string('availablilty')->nullable();
             $table->timestamps();
         });
     }

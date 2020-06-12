@@ -15,12 +15,13 @@ class CreateTopicsTable extends Migration
     {
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
-            $table->integer('course_id')->index()->unsigned();
-            $table->integer('parent_topic_id')->index()->unsigned();
+            $table->foreignId('module_id')->constrained()->onDelete('cascade');
             $table->integer('name')->index()->unsigned();
             $table->integer('description')->index()->unsigned();
             $table->integer('seconds')->index()->unsigned();
             $table->timestamps();
+
+            $table->foreign('parent_topic_id')->references('id')->on('topics')->onDelete('cascade');
         });
     }
 

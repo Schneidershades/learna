@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Topic;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Course\CourseResource;
 
 class TopicResource extends JsonResource
 {
@@ -14,6 +15,10 @@ class TopicResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'name' => $this->name,
+            'description' => $this->description,
+            'seconds' => $this->seconds,
+        ];
     }
 }

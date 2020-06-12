@@ -3,6 +3,8 @@
 namespace App\Http\Resources\Material;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Course\CourseResource;
+use App\Http\Resources\Topic\TopicResource;
 
 class MaterialResource extends JsonResource
 {
@@ -14,6 +16,11 @@ class MaterialResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'course' => new CourseResource($this->course),
+            'topic' => new TopicResource($this->topic),
+            'link' => $this->intro_link,
+            'upload' => $this->short_description,
+        ];
     }
 }

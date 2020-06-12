@@ -15,10 +15,14 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->integer('course_id')->index()->unsigned();
-            $table->integer('topic_id')->index()->unsigned();
+            $table->foreignId('projectable_id')->constrained()->onDelete('cascade');
+            $table->string('projectable_type')->nullable();
             $table->string('name')->nullable();
             $table->text('description')->nullable();
+            $table->date('deadline')->nullable();
+            $table->text('points')->nullable();
+            $table->text('link')->nullable();
+            $table->text('upload')->nullable();
             $table->timestamps();
         });
     }

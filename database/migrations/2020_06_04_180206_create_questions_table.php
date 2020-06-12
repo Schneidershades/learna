@@ -15,11 +15,11 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->integer('quiz_id')->index()->unsigned();
+            $table->foreignId('quiz_id')->constrained()->onDelete('cascade');
             $table->text('question')->nullable();
             $table->boolean('essay')->default(false);
             $table->text('answer')->nullable();
-            $table->text('points')->nullable();
+            $table->integer('points')->nullable();
             $table->timestamps();
         });
     }

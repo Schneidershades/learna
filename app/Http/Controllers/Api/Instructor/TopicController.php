@@ -2,62 +2,206 @@
 
 namespace App\Http\Controllers\Api\Instructor;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Topic;
+use App\Http\Controllers\Api\ApiController;
+use App\Http\Requests\Instructor\TopicCreateFormRequest;
+use App\Http\Requests\Instructor\TopicUpdateFormRequest;
 
-class TopicController extends Controller
+class TopicController extends ApiController
 {
     public function index()
     {
         return auth()->user()->instructor()->courses;
     }
 
-    public function store(Request $request)
+      /**
+    * @OA\Post(
+    *      path="/api/v1/instructor/instructor-topic",
+    *      operationId="createTopic",
+    *      tags={"instructor"},
+    *      summary="create an instructor's topic ",
+    *      description="create an instructor's topic ",
+    *      @OA\RequestBody(
+    *          required=true,
+    *          @OA\JsonContent(ref="#/components/schemas/TopicCreateFormRequest")
+    *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="Unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
+    public function store(TopicCreateFormRequest $request)
     {
         $requestColumns = array_keys($request->all());
 
-        $topic = new Topic;
+        $model = new Topic;
 
-        $tableColumns = $this->getColumns($topic->getTable());
+        $this->requestAndDbIntersection($request, $model, []);
 
-        $fields = array_intersect($requestColumns, $tableColumns);
+        $model->save();
 
-        foreach($fields as $field){
-            $topic->setAttribute($field, $request[$field]);
-        }
-
-        $topic->save();
-
-        return $topic;
+        return $this->showOne($model, 201);
     }
 
+    /**
+    * @OA\Get(
+    *      path="/api/v1/instructor/instructor-topic/{id}",
+    *      operationId="showTopic",
+    *      tags={"instructor"},
+    *      summary="show an instructor's topic details ",
+    *      description="show an instructor's topic details ",
+    *      
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Topic ID",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="Unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
     public function show($id)
     {
-        return Topic::findOrFail($id);
+        return $this->showOne(Topic::findOrFail($id), 201);
     }
 
-    public function update(Request $request, $id)
+      /**
+    * @OA\Put(
+    *      path="/api/v1/instructor/instructor-topic/{id}",
+    *      operationId="updateTopic",
+    *      tags={"instructor"},
+    *      summary="update an instructor's topic ",
+    *      description="update an instructor's topic ",
+    *      @OA\RequestBody(
+    *          required=true,
+    *          @OA\JsonContent(ref="#/components/schemas/TopicUpdateFormRequest")
+    *      ),
+    *      
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Topic ID",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="Unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
+    public function update(TopicUpdateFormRequest $request, $id)
     {
-        $topic = Topic::findOrFail($id);
-
-        $requestColumns = array_keys($request->all());
+        $model = Topic::findOrFail($id);
         
-        $tableColumns = $this->getColumns($table->getTable());
+        $this->requestAndDbIntersection($request, $model, []);
 
-        $fields = array_intersect($requestColumns, $tableColumns);
-
-        foreach($fields as $field){
-            $topic->setAttribute($field, $request[$field]);
-        }
-
-        $topic->save();
+        $model->save();
         
-        return $topic;
+        return $this->showOne($model, 201);
     }
 
+      /**
+    * @OA\Delete(
+    *      path="/api/v1/instructor/instructor-topic/{id}",
+    *      operationId="deleteTopic",
+    *      tags={"instructor"},
+    *      summary="delete an instructor's topic ",
+    *      description="delete an instructor's topic ",
+    *      
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Topic ID",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="Unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
     public function destroy($id)
     {
-        $topic = Topic::findOrFail($id);
-        $topic->delete();
+        $model = Topic::findOrFail($id);
+        $model->delete();
+        return $this->showMessage('topic deleted');
     }
 }

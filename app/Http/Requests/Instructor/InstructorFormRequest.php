@@ -3,6 +3,15 @@
 namespace App\Http\Requests\Instructor;
 
 use Illuminate\Foundation\Http\FormRequest;
+/**
+/**
+ * @OA\Schema(
+ *      title="Intructor Create Form Request Fields",
+ *      description="Intructor Create request body data",
+ *      type="object",
+ *      required={"email"}
+ * )
+ */
 
 class InstructorFormRequest extends FormRequest
 {

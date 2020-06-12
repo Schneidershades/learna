@@ -14,6 +14,14 @@ class InstructorResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'profession' => $this->profession,
+            'official_email' => $this->official_email,
+            'instagram' => $this->instagram,
+            'twitter' => $this->twitter,
+            'facebook' => $this->facebook,
+            'linkedin' => $this->linkedin,
+            'website' => $this->website,
+        ];
     }
 }

@@ -15,10 +15,11 @@ class CreateQuizzesTable extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
-            $table->integer('course_id')->index()->unsigned();
-            $table->integer('topic_id')->index()->unsigned();
+            $table->foreignId('course_id')->constrained()->onDelete('cascade');
+            $table->foreignId('topic_id')->constrained()->onDelete('cascade');
             $table->string('name')->nullable();
             $table->integer('duration')->nullable();
+            $table->integer('points')->nullable();
             $table->timestamps();
         });
     }

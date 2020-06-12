@@ -4,7 +4,17 @@ namespace App\Http\Requests\Instructor;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CourseFormRequest extends FormRequest
+/**
+/**
+ * @OA\Schema(
+ *      title="Course Create Form Request Fields",
+ *      description="Course Create request body data",
+ *      type="object",
+ *      required={"email"}
+ * )
+ */
+
+class CourseCreateFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +23,7 @@ class CourseFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +35,7 @@ class CourseFormRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'banner' => '|file|max:255',
+            'banner' => 'file',
             'intro_link' => 'required|string|max:255',
             'short_description' => 'string|max:255',
             'long_description' => 'string|max:255',
