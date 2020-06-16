@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Instructor;
 use App\Models\Topic;
+use App\Models\ParticipantCourse;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Resources\Course\CourseResource;
 use App\Http\Resources\Course\CourseCollection;
@@ -21,5 +22,10 @@ class Course extends Model
     public function topics()
     {
     	return $this->hasMany(Topic::class);
+    }
+
+    public function participantCourse()
+    {
+        return $this->hasMany(ParticipantCourse::class);
     }
 }

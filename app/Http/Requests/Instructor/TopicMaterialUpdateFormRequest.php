@@ -16,13 +16,58 @@ use Illuminate\Foundation\Http\FormRequest;
 class TopicMaterialUpdateFormRequest extends FormRequest
 {
     /**
+     * @OA\Property(
+     *      title="model id",
+     *      description="model id",
+     *      example="1"
+     * )
+     *
+     * @var int
+     */
+    public $materable_id;
+
+     /**
+     * @OA\Property(
+     *      title="model type",
+     *      description="model type",
+     *      example="course/topic/module"
+     * )
+     *
+     * @var string
+     */
+    public $materable_type;
+
+    /**
+     * @OA\Property(
+     *      title="Link if any",
+     *      description="Link if any",
+     *      example="https:// "
+     * )
+     *
+     * @var string
+     */
+    public $link;
+
+    /**
+     * @OA\Property(
+     *      title="Upload File",
+     *      description="Upload File",
+     *      example="This is a description "
+     * )
+     *
+     * @var string
+     */
+    public $upload;
+
+    
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -33,8 +78,8 @@ class TopicMaterialUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'course_id' => 'required|exists:courses,id',
-            'topic_id' => 'required|exists:topics,id',
+            'materable_id' => 'required|int',
+            'materable_type' => 'required|string',
             'link' => 'required|string',
             'upload' => 'file',
         ];

@@ -14,6 +14,40 @@ use Illuminate\Foundation\Http\FormRequest;
  */
 class ModuleUpdateFormRequest extends FormRequest
 {
+
+    /**
+     * @OA\Property(
+     *      title="course id",
+     *      description="course id",
+     *      example="1"
+     * )
+     *
+     * @var int
+     */
+    public $course_id;
+
+    /**
+     * @OA\Property(
+     *      title="Module name",
+     *      description="Module name",
+     *      example="Module name"
+     * )
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @OA\Property(
+     *      title="Description",
+     *      description="Description",
+     *      example="This is a module"
+     * )
+     *
+     * @var string
+     */
+    public $description;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -21,7 +55,7 @@ class ModuleUpdateFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -32,7 +66,9 @@ class ModuleUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'course_id' => 'required|int|exists:courses,id',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
         ];
     }
 }

@@ -143,7 +143,7 @@ class CourseController extends ApiController
     *      
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/CourseCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/CourseUpdateFormRequest")
     *      ),
     *      
      *      @OA\Parameter(

@@ -15,6 +15,85 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class InstructorFormRequest extends FormRequest
 {
+     /**
+     * @OA\Property(
+     *      title="Instructor profession",
+     *      description="Instructor profession",
+     *      example="Carpenter"
+     * )
+     *
+     * @var string
+     */
+    public $profession;
+
+    /**
+     * @OA\Property(
+     *      title="Official Email",
+     *      description="official_email",
+     *      example="admin@admin.com"
+     * )
+     *
+     * @var string
+     */
+    public $official_email;
+
+    /**
+     * @OA\Property(
+     *      title="Instagram Link",
+     *      description="Instagram Link",
+     *      example="https://"
+     * )
+     *
+     * @var string
+     */
+    public $instagram;
+
+
+    /**
+     * @OA\Property(
+     *      title="Twitter Link",
+     *      description="Twitter Link",
+     *      example="https://"
+     * )
+     *
+     * @var string
+     */
+    public $twitter;
+
+    /**
+     * @OA\Property(
+     *      title="Facebook Link",
+     *      description="Facebook Link",
+     *      example="https://"
+     * )
+     *
+     * @var string
+     */
+    public $facebook;
+
+
+    /**
+     * @OA\Property(
+     *      title="Linkedin Link",
+     *      description="Linkedin Link",
+     *      example="Https://"
+     * )
+     *
+     * @var string
+     */
+    public $linkedin;
+
+    /**
+     * @OA\Property(
+     *      title="Website Link",
+     *      description="Website Link",
+     *      example="Https://"
+     * )
+     *
+     * @var string
+     */
+    public $website;
+
     /**
      * Determine if the user is authorized to make this request.
      *

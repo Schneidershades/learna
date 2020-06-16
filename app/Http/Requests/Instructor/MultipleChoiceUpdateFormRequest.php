@@ -15,6 +15,39 @@ use Illuminate\Foundation\Http\FormRequest;
  */
 class MultipleChoiceUpdateFormRequest extends FormRequest
 {
+     /**
+     * @OA\Property(
+     *      title="question id",
+     *      description="question id",
+     *      example="1"
+     * )
+     *
+     * @var int
+     */
+    public $question_id;
+
+    /**
+     * @OA\Property(
+     *      title="Option",
+     *      description="Option",
+     *      example="Wole Soyinka"
+     * )
+     *
+     * @var string
+     */
+    public $option;
+
+    /**
+     * @OA\Property(
+     *      title="Correct Answer",
+     *      description="Correct Answer",
+     *      example="true/false"
+     * )
+     *
+     * @var string
+     */
+    public $correct_answer;
+
     /**
      * Determine if the user is authorized to make this request.
      *
