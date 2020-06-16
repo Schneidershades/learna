@@ -14,7 +14,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * )
  */
 
-class ParticipantCourseUpdateFormRequest extends FormRequest
+class InstructorParticipantCourseUpdateFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

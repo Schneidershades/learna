@@ -10,4 +10,6 @@ class Participant extends Model
 {
     public $oneItem = ParticipantResource::class;
     public $allItems = ParticipantCollection::class;
+
+    
 }

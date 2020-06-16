@@ -12,7 +12,7 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"email"}
  * )
  */
-class ParticipantTopicCreateFormRequest extends FormRequest
+class InstructorParticipantTopicCreateFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

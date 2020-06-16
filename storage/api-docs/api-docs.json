@@ -1,0 +1,5149 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Learna App OpenApi API Documentation",
+        "description": "Learna App Using L5 Swagger OpenApi description",
+        "contact": {
+            "email": "schneidershades@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/instructor/instructor-course": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "Show all courses of an instructor",
+                "description": "Show all courses of an instructor",
+                "operationId": "allCourses",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "create an instructor's course ",
+                "description": "create an instructor's course ",
+                "operationId": "createCourse",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CourseCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/instructor-course/{id}": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "show an instructor's course details ",
+                "description": "show an instructor's course details ",
+                "operationId": "showCourse",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Course ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "update an instructor's course ",
+                "description": "update an instructor's course ",
+                "operationId": "updateCourse",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Course ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CourseUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "delete an instructor's course ",
+                "description": "delete an instructor's course ",
+                "operationId": "deleteCourse",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Course ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/instructor-profile/{id}": {
+            "put": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "update an instructor's profile ",
+                "description": "update an instructor's profile ",
+                "operationId": "updateProfile",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Course ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InstructorFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/instructor-module": {
+            "post": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "create an instructor's module ",
+                "description": "create an instructor's module ",
+                "operationId": "createModule",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModuleCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/instructor-module/{id}": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "show an instructor's module details ",
+                "description": "show an instructor's module details ",
+                "operationId": "showModule",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Module ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "update an instructor's module ",
+                "description": "update an instructor's module ",
+                "operationId": "updateModule",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Module ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModuleUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "delete an instructor's module ",
+                "description": "delete an instructor's module ",
+                "operationId": "deleteModule",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Module ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/instructor-multiple-choice": {
+            "post": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "create an instructor's multiple choice ",
+                "description": "create an instructor's multiple choice ",
+                "operationId": "createModule",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModuleCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/instructor-multiple-choice/{id}": {
+            "put": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "update an instructor's multiple choice ",
+                "description": "update an instructor's multiple choice ",
+                "operationId": "updateModule",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Module ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/MultipleChoiceUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "delete an instructor's multiple choice ",
+                "description": "delete an instructor's multiple choice ",
+                "operationId": "deleteModule",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Module ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/participant-course": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "Show all courses of a participant",
+                "description": "Show all courses of a participant",
+                "operationId": "allInstructorParticipantCourses",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "create a participant's course ",
+                "description": "create a participant's course ",
+                "operationId": "createInstructorParticipantCourse",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InstructorParticipantCourseCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/participant-course/{id}": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "show a participant's course details ",
+                "description": "show a participant's course details ",
+                "operationId": "showInstructorParticipantCourse",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantCourse ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "update a participant's course ",
+                "description": "update a participant's course ",
+                "operationId": "updateInstructorParticipantCourse",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantCourse ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InstructorParticipantCourseUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "delete a participant's course ",
+                "description": "delete a participant's course ",
+                "operationId": "deleteInstructorParticipantCourse",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantCourse ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/participant-multiple-choice": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "Show all multiple choice of a participant",
+                "description": "Show all multiple choice of a participant",
+                "operationId": "allInstructorParticipantMultipleChoices",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "create a participant's multiple choice ",
+                "description": "create a participant's multiple choice ",
+                "operationId": "createInstructorParticipantMultipleChoice",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InstructorParticipantMultipleChoiceCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/participant-multiple-choice/{id}": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "show a participant's multiple choice details ",
+                "description": "show a participant's multiple choice details ",
+                "operationId": "showInstructorParticipantMultipleChoice",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantMultipleChoice ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "update a participant's multiple choice ",
+                "description": "update a participant's multiple choice ",
+                "operationId": "updateInstructorParticipantMultipleChoice",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantMultipleChoice ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InstructorParticipantMultipleChoiceUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "delete a participant's multiple choice ",
+                "description": "delete a participant's multiple choice ",
+                "operationId": "deleteInstructorParticipantMultipleChoice",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantMultipleChoice ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/participant-project": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "Show all project of a participant",
+                "description": "Show all project of a participant",
+                "operationId": "allInstructorParticipantParticipantProjects",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "create a participant's project ",
+                "description": "create a participant's project ",
+                "operationId": "createInstructorParticipantProject",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InstructorParticipantProjectCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/participant-project/{id}": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "show a participant's project details ",
+                "description": "show a participant's project details ",
+                "operationId": "showInstructorParticipantProject",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantProject ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "update a participant's project ",
+                "description": "update a participant's project ",
+                "operationId": "updateInstructorParticipantProject",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantProject ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InstructorParticipantProjectUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "delete a participant's project ",
+                "description": "delete a participant's project ",
+                "operationId": "deleteInstructorParticipantProject",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantProject ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/participant-question": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "Show all question of a participant",
+                "description": "Show all question of a participant",
+                "operationId": "allInstructorParticipantQuestions",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "create a participant's question ",
+                "description": "create a participant's question ",
+                "operationId": "createInstructorParticipantQuestion",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InstructorParticipantQuestionCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/participant-question/{id}": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "show a participant's question details ",
+                "description": "show a participant's question details ",
+                "operationId": "showInstructorParticipantQuestion",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantQuestion ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "update a participant's question ",
+                "description": "update a participant's question ",
+                "operationId": "updateInstructorParticipantQuestion",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantQuestion ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InstructorParticipantQuestionUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "delete a participant's question ",
+                "description": "delete a participant's question ",
+                "operationId": "deleteInstructorParticipantQuestion",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantQuestion ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/participant-quiz": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "Show all quiz of a participant",
+                "description": "Show all quiz of a participant",
+                "operationId": "allInstructorParticipantQuizs",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "create a participant's quiz ",
+                "description": "create a participant's quiz ",
+                "operationId": "createInstructorParticipantQuiz",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InstructorParticipantQuizCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/participant-quiz/{id}": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "show a participant's quiz details ",
+                "description": "show a participant's quiz details ",
+                "operationId": "showInstructorParticipantQuiz",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantQuiz ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "update a participant's quiz ",
+                "description": "update a participant's quiz ",
+                "operationId": "updateInstructorParticipantQuiz",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantQuiz ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InstructorParticipantQuizUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "delete a participant's quiz ",
+                "description": "delete a participant's quiz ",
+                "operationId": "deleteInstructorParticipantQuiz",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantQuiz ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/participant-topic": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "Show all topics of a participant",
+                "description": "Show all topics of a participant",
+                "operationId": "allInstructorParticipantTopics",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "create a participant's topic ",
+                "description": "create a participant's topic ",
+                "operationId": "createInstructorParticipantTopic",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InstructorParticipantTopicCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/participant-topic/{id}": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "show a participant's topic details ",
+                "description": "show a participant's topic details ",
+                "operationId": "showInstructorParticipantTopic",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantTopic ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "update a participant's topic ",
+                "description": "update a participant's topic ",
+                "operationId": "updateInstructorParticipantTopic",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantTopic ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InstructorParticipantTopicUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "delete a participant's topic ",
+                "description": "delete a participant's topic ",
+                "operationId": "deleteInstructorParticipantTopic",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantTopic ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/instructor-project": {
+            "post": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "create an instructor's project ",
+                "description": "create an instructor's project ",
+                "operationId": "createProject",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ProjectCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/instructor-project/{id}": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "show an instructor's project details ",
+                "description": "show an instructor's project details ",
+                "operationId": "showProject",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Project ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "update an instructor's project ",
+                "description": "update an instructor's project ",
+                "operationId": "updateProject",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Project ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ProjectUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "delete an instructor's project ",
+                "description": "delete an instructor's project ",
+                "operationId": "deleteProject",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Project ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/instructor-question": {
+            "post": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "create an instructor's question ",
+                "description": "create an instructor's question ",
+                "operationId": "createQuestion",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/QuestionCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/instructor-question/{id}": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "show an instructor's question details ",
+                "description": "show an instructor's question details ",
+                "operationId": "showQuestion",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Question ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "update an instructor's question ",
+                "description": "update an instructor's question ",
+                "operationId": "updateQuestion",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Question ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/QuestionUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "delete an instructor's question ",
+                "description": "delete an instructor's question ",
+                "operationId": "deleteQuestion",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Question ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/instructor-quiz": {
+            "post": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "create an instructor's quiz ",
+                "description": "create an instructor's quiz ",
+                "operationId": "createQuiz",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/QuizCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/instructor-quiz/{id}": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "show an instructor's quiz details ",
+                "description": "show an instructor's quiz details ",
+                "operationId": "showQuiz",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Quiz ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "update an instructor's quiz ",
+                "description": "update an instructor's quiz ",
+                "operationId": "updateQuiz",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Quiz ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/QuizUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "delete an instructor's quiz ",
+                "description": "delete an instructor's quiz ",
+                "operationId": "deleteQuiz",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Quiz ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/instructor-topic": {
+            "post": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "create an instructor's topic ",
+                "description": "create an instructor's topic ",
+                "operationId": "createTopic",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TopicCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/instructor-topic/{id}": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "show an instructor's topic details ",
+                "description": "show an instructor's topic details ",
+                "operationId": "showTopic",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Topic ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "update an instructor's topic ",
+                "description": "update an instructor's topic ",
+                "operationId": "updateTopic",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Topic ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TopicUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "delete an instructor's topic ",
+                "description": "delete an instructor's topic ",
+                "operationId": "deleteTopic",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Topic ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/instructor-material": {
+            "post": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "create an instructor's material ",
+                "description": "create an instructor's material ",
+                "operationId": "createMaterial",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TopicMaterialCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/instructor/instructor-material/{id}": {
+            "get": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "show an instructor's material details ",
+                "description": "show an instructor's material details ",
+                "operationId": "showMaterial",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Material ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "update an instructor's material ",
+                "description": "update an instructor's material ",
+                "operationId": "updateMaterial",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Material ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TopicMaterialUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "instructor"
+                ],
+                "summary": "delete an instructor's material ",
+                "description": "delete an instructor's material ",
+                "operationId": "deleteMaterial",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Material ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/participant/participant-course": {
+            "get": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "Show all courses of a participant",
+                "description": "Show all courses of a participant",
+                "operationId": "allParticipantCourses",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "create a participant's course ",
+                "description": "create a participant's course ",
+                "operationId": "createParticipantCourse",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParticipantCourseCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/participant/participant-course/{id}": {
+            "get": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "show a participant's course details ",
+                "description": "show a participant's course details ",
+                "operationId": "showParticipantCourse",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantCourse ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "update a participant's course ",
+                "description": "update a participant's course ",
+                "operationId": "updateParticipantCourse",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantCourse ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParticipantCourseUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "delete a participant's course ",
+                "description": "delete a participant's course ",
+                "operationId": "deleteParticipantCourse",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantCourse ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/participant/participant-multiple-choice": {
+            "get": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "Show all multiple choice of a participant",
+                "description": "Show all multiple choice of a participant",
+                "operationId": "allParticipantMultipleChoices",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "create a participant's multiple choice ",
+                "description": "create a participant's multiple choice ",
+                "operationId": "createParticipantMultipleChoice",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParticipantMultipleChoiceCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/participant/participant-multiple-choice/{id}": {
+            "get": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "show a participant's multiple choice details ",
+                "description": "show a participant's multiple choice details ",
+                "operationId": "showParticipantMultipleChoice",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantMultipleChoice ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "update a participant's multiple choice ",
+                "description": "update a participant's multiple choice ",
+                "operationId": "updateParticipantMultipleChoice",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantMultipleChoice ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParticipantMultipleChoiceUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "delete a participant's multiple choice ",
+                "description": "delete a participant's multiple choice ",
+                "operationId": "deleteParticipantMultipleChoice",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantMultipleChoice ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/participant/participant-project": {
+            "get": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "Show all project of a participant",
+                "description": "Show all project of a participant",
+                "operationId": "allParticipantProjects",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "create a participant's project ",
+                "description": "create a participant's project ",
+                "operationId": "createParticipantProject",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParticipantProjectCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/participant/participant-project/{id}": {
+            "get": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "show a participant's project details ",
+                "description": "show a participant's project details ",
+                "operationId": "showParticipantProject",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantProject ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "update a participant's project ",
+                "description": "update a participant's project ",
+                "operationId": "updateParticipantProject",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantProject ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParticipantProjectUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "delete a participant's project ",
+                "description": "delete a participant's project ",
+                "operationId": "deleteParticipantProject",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantProject ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/participant/participant-question": {
+            "get": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "Show all question of a participant",
+                "description": "Show all question of a participant",
+                "operationId": "allParticipantQuestions",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "create a participant's question ",
+                "description": "create a participant's question ",
+                "operationId": "createParticipantQuestion",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParticipantQuestionCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/participant/participant-question/{id}": {
+            "get": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "show a participant's question details ",
+                "description": "show a participant's question details ",
+                "operationId": "showParticipantQuestion",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantQuestion ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "update a participant's question ",
+                "description": "update a participant's question ",
+                "operationId": "updateParticipantQuestion",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantQuestion ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParticipantQuestionUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "delete a participant's question ",
+                "description": "delete a participant's question ",
+                "operationId": "deleteParticipantQuestion",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantQuestion ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/participant/participant-quiz": {
+            "get": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "Show all quiz of a participant",
+                "description": "Show all quiz of a participant",
+                "operationId": "allParticipantQuizs",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "create a participant's quiz ",
+                "description": "create a participant's quiz ",
+                "operationId": "createParticipantQuiz",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParticipantQuizCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/participant/participant-quiz/{id}": {
+            "get": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "show a participant's quiz details ",
+                "description": "show a participant's quiz details ",
+                "operationId": "showParticipantQuiz",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantQuiz ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "update a participant's quiz ",
+                "description": "update a participant's quiz ",
+                "operationId": "updateParticipantQuiz",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantQuiz ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParticipantQuizUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "delete a participant's quiz ",
+                "description": "delete a participant's quiz ",
+                "operationId": "deleteParticipantQuiz",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantQuiz ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/participant/participant-topic": {
+            "get": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "Show all topics of a participant",
+                "description": "Show all topics of a participant",
+                "operationId": "allParticipantTopics",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "create a participant's topic ",
+                "description": "create a participant's topic ",
+                "operationId": "createParticipantTopic",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParticipantTopicCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/participant/participant-topic/{id}": {
+            "get": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "show a participant's topic details ",
+                "description": "show a participant's topic details ",
+                "operationId": "showParticipantTopic",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantTopic ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "update a participant's topic ",
+                "description": "update a participant's topic ",
+                "operationId": "updateParticipantTopic",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantTopic ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParticipantTopicUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "delete a participant's topic ",
+                "description": "delete a participant's topic ",
+                "operationId": "deleteParticipantTopic",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantTopic ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/user/register": {
+            "post": {
+                "tags": [
+                    "authentication"
+                ],
+                "summary": "Sign Up a new user",
+                "description": "Returns a newly registered user data",
+                "operationId": "register",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserRegistrationFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signup",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/user/login": {
+            "post": {
+                "tags": [
+                    "authentication"
+                ],
+                "summary": "Sign In a registered user",
+                "description": "Returns a newly registered user data",
+                "operationId": "signIn",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserLoginFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/user/profile": {
+            "get": {
+                "tags": [
+                    "authentication"
+                ],
+                "summary": "Profile of a registered user",
+                "description": "Profile of a registered user",
+                "operationId": "userProfile",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "authentication"
+                ],
+                "summary": "Profile of a registered user",
+                "description": "Profile of a registered user",
+                "operationId": "updateUserProfile",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/user/logout": {
+            "post": {
+                "tags": [
+                    "authentication"
+                ],
+                "summary": "Logout a registered user",
+                "description": "Logout a registered user",
+                "operationId": "userLogout",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CourseCreateFormRequest": {
+                "title": "Course Create Form Request Fields",
+                "description": "Course Create request body data",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "Course name",
+                        "description": "Course name",
+                        "type": "string",
+                        "example": "Course name"
+                    },
+                    "banner": {
+                        "title": "Banner",
+                        "description": "File Banner",
+                        "type": "string",
+                        "example": "C:/"
+                    },
+                    "intro_link": {
+                        "title": "Introduction Video Link",
+                        "description": "Introduction Video Link",
+                        "type": "string",
+                        "example": "https://"
+                    },
+                    "short_description": {
+                        "title": "Short Description",
+                        "description": "Short Description",
+                        "type": "string",
+                        "example": "This is a video content"
+                    },
+                    "long_description": {
+                        "title": "Long Description",
+                        "description": "Long Description",
+                        "type": "string",
+                        "example": "This is a video content"
+                    },
+                    "highlight_links": {
+                        "title": "Highlight Link",
+                        "description": "Highlight Link",
+                        "type": "string",
+                        "example": "Https://"
+                    },
+                    "testimonial_links": {
+                        "title": "Testimonial Link",
+                        "description": "Testimonial Link",
+                        "type": "string",
+                        "example": "Https://"
+                    },
+                    "start_date": {
+                        "title": "Start Date",
+                        "description": "start date on the course",
+                        "type": "string",
+                        "example": "2020-12-04"
+                    },
+                    "end_date": {
+                        "title": "End Date",
+                        "description": "end date on the course",
+                        "type": "string",
+                        "example": "2020-12-23"
+                    },
+                    "type": {
+                        "title": "Course Type ",
+                        "description": "Course Type",
+                        "type": "string",
+                        "example": "Course Type"
+                    },
+                    "duration": {
+                        "title": "Time Duration of the Course",
+                        "description": "Time Duration of the Course",
+                        "type": "integer",
+                        "example": "3000"
+                    },
+                    "free": {
+                        "type": "integer"
+                    },
+                    "price": {
+                        "type": "integer"
+                    },
+                    "availablilty": {
+                        "title": "Course Available",
+                        "description": "Course Available",
+                        "type": "string",
+                        "example": "true"
+                    }
+                },
+                "type": "object"
+            },
+            "CourseUpdateFormRequest": {
+                "title": "Course Update Form Request Fields",
+                "description": "Course Update request body data",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "Course name",
+                        "description": "Course name",
+                        "type": "string",
+                        "example": "Course name"
+                    },
+                    "banner": {
+                        "title": "Banner",
+                        "description": "File Banner",
+                        "type": "string",
+                        "example": "C:/"
+                    },
+                    "intro_link": {
+                        "title": "Introduction Video Link",
+                        "description": "Introduction Video Link",
+                        "type": "string",
+                        "example": "https://"
+                    },
+                    "short_description": {
+                        "title": "Short Description",
+                        "description": "Short Description",
+                        "type": "string",
+                        "example": "This is a video content"
+                    },
+                    "long_description": {
+                        "title": "Long Description",
+                        "description": "Long Description",
+                        "type": "string",
+                        "example": "This is a video content"
+                    },
+                    "highlight_links": {
+                        "title": "Highlight Link",
+                        "description": "Highlight Link",
+                        "type": "string",
+                        "example": "Https://"
+                    },
+                    "testimonial_links": {
+                        "title": "Testimonial Link",
+                        "description": "Testimonial Link",
+                        "type": "string",
+                        "example": "Https://"
+                    },
+                    "start_date": {
+                        "title": "Start Date",
+                        "description": "start date on the course",
+                        "type": "string",
+                        "example": "2020-12-04"
+                    },
+                    "end_date": {
+                        "title": "End Date",
+                        "description": "end date on the course",
+                        "type": "string",
+                        "example": "2020-12-23"
+                    },
+                    "type": {
+                        "title": "Course Type ",
+                        "description": "Course Type",
+                        "type": "string",
+                        "example": "Course Type"
+                    },
+                    "duration": {
+                        "title": "Time Duration of the Course",
+                        "description": "Time Duration of the Course",
+                        "type": "integer",
+                        "example": "3000"
+                    },
+                    "free": {
+                        "type": "integer"
+                    },
+                    "price": {
+                        "type": "integer"
+                    },
+                    "availablilty": {
+                        "title": "Course Available",
+                        "description": "Course Available",
+                        "type": "string",
+                        "example": "true"
+                    }
+                },
+                "type": "object"
+            },
+            "InstructorFormRequest": {
+                "title": "Intructor Create Form Request Fields",
+                "description": "Intructor Create request body data",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "profession": {
+                        "title": "Instructor profession",
+                        "description": "Instructor profession",
+                        "type": "string",
+                        "example": "Carpenter"
+                    },
+                    "official_email": {
+                        "title": "Official Email",
+                        "description": "official_email",
+                        "type": "string",
+                        "example": "admin@admin.com"
+                    },
+                    "instagram": {
+                        "title": "Instagram Link",
+                        "description": "Instagram Link",
+                        "type": "string",
+                        "example": "https://"
+                    },
+                    "twitter": {
+                        "title": "Twitter Link",
+                        "description": "Twitter Link",
+                        "type": "string",
+                        "example": "https://"
+                    },
+                    "facebook": {
+                        "title": "Facebook Link",
+                        "description": "Facebook Link",
+                        "type": "string",
+                        "example": "https://"
+                    },
+                    "linkedin": {
+                        "title": "Linkedin Link",
+                        "description": "Linkedin Link",
+                        "type": "string",
+                        "example": "Https://"
+                    },
+                    "website": {
+                        "title": "Website Link",
+                        "description": "Website Link",
+                        "type": "string",
+                        "example": "Https://"
+                    }
+                },
+                "type": "object"
+            },
+            "InstructorParticipantCourseCreateFormRequest": {
+                "title": "Instructor Participant Course Create Form Request Fields",
+                "description": "Instructor Participant Course Create request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "InstructorParticipantCourseUpdateFormRequest": {
+                "title": "Instructor Participant Course Update Form Request Fields",
+                "description": "Instructor Participant Course Update request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "InstructorParticipantMultipleChoiceCreateFormRequest": {
+                "title": "Instructor Participant Multiple Choice Create Form Request Fields",
+                "description": "Instructor Participant Multiple Choice Create request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "InstructorParticipantMultipleChoiceUpdateFormRequest": {
+                "title": "Instructor Participant Multiple Choice Update Form Request Fields",
+                "description": "Instructor Participant Multiple Choice Update request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "InstructorParticipantProjectCreateFormRequest": {
+                "title": "Instructor Participant Project Create Form Request Fields",
+                "description": "Instructor Participant Project Create request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "InstructorParticipantProjectUpdateFormRequest": {
+                "title": "Instructor Participant Project Update Form Request Fields",
+                "description": "Instructor Participant Project Update request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "InstructorParticipantQuestionCreateFormRequest": {
+                "title": "Instructor Participant Question Create Form Request Fields",
+                "description": "Instructor Participant Question Create request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "InstructorParticipantQuestionUpdateFormRequest": {
+                "title": "Instructor Participant Question Update Form Request Fields",
+                "description": "Instructor Participant Question Update request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "InstructorParticipantQuizCreateFormRequest": {
+                "title": "Instructor Participant Quiz Create Form Request Fields",
+                "description": "Instructor Participant Quiz Create request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "InstructorParticipantQuizUpdateFormRequest": {
+                "title": "Instructor Participant Quiz Update Form Request Fields",
+                "description": "Instructor Participant Quiz Update request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "InstructorParticipantTopicCreateFormRequest": {
+                "title": "Instructor Participant Topic Create Form Request Fields",
+                "description": "Instructor Participant Topic Create request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "InstructorParticipantTopicUpdateFormRequest": {
+                "title": "Instructor Participant Topic Update Form Request Fields",
+                "description": "Instructor Participant Topic Update request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "ModuleCreateFormRequest": {
+                "title": "Module Create Form Request Fields",
+                "description": "Module Create request body data",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "course_id": {
+                        "title": "course id",
+                        "description": "course id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "name": {
+                        "title": "Module name",
+                        "description": "Module name",
+                        "type": "string",
+                        "example": "Module name"
+                    },
+                    "description": {
+                        "title": "Description",
+                        "description": "Description",
+                        "type": "string",
+                        "example": "This is a module"
+                    }
+                },
+                "type": "object"
+            },
+            "ModuleUpdateFormRequest": {
+                "title": "Module Update Form Request Fields",
+                "description": "Module Update request body data",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "course_id": {
+                        "title": "course id",
+                        "description": "course id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "name": {
+                        "title": "Module name",
+                        "description": "Module name",
+                        "type": "string",
+                        "example": "Module name"
+                    },
+                    "description": {
+                        "title": "Description",
+                        "description": "Description",
+                        "type": "string",
+                        "example": "This is a module"
+                    }
+                },
+                "type": "object"
+            },
+            "MultipleChoiceCreateFormRequest": {
+                "title": "Multiple Choice Create Form Request Fields",
+                "description": "Multiple Choice Create request body data",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "question_id": {
+                        "title": "question id",
+                        "description": "question id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "option": {
+                        "title": "Option",
+                        "description": "Option",
+                        "type": "string",
+                        "example": "Wole Soyinka"
+                    },
+                    "correct_answer": {
+                        "title": "Correct Answer",
+                        "description": "Correct Answer",
+                        "type": "string",
+                        "example": "true/false"
+                    }
+                },
+                "type": "object"
+            },
+            "MultipleChoiceUpdateFormRequest": {
+                "title": "Multiple Choice Update Form Request Fields",
+                "description": "Multiple Choice Update request body data",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "question_id": {
+                        "title": "question id",
+                        "description": "question id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "option": {
+                        "title": "Option",
+                        "description": "Option",
+                        "type": "string",
+                        "example": "Wole Soyinka"
+                    },
+                    "correct_answer": {
+                        "title": "Correct Answer",
+                        "description": "Correct Answer",
+                        "type": "string",
+                        "example": "true/false"
+                    }
+                },
+                "type": "object"
+            },
+            "ProjectCreateFormRequest": {
+                "title": "Project Create Form Request Fields",
+                "description": "Project Create request body data",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "projectable_id": {
+                        "title": "model id",
+                        "description": "model id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "projectable_type": {
+                        "title": "model type",
+                        "description": "model type",
+                        "type": "string",
+                        "example": "course/topic/module"
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "Name",
+                        "type": "string",
+                        "example": "Times "
+                    },
+                    "description": {
+                        "title": "Description",
+                        "description": "Description",
+                        "type": "string",
+                        "example": "This is a description "
+                    },
+                    "deadline": {
+                        "title": "Deadline",
+                        "description": "Deadline",
+                        "type": "string",
+                        "example": "2020-06-29 "
+                    },
+                    "points": {
+                        "title": "Points if answered",
+                        "description": "Points if answered",
+                        "type": "integer",
+                        "example": "10"
+                    }
+                },
+                "type": "object"
+            },
+            "ProjectUpdateFormRequest": {
+                "title": "Project Update Form Request Fields",
+                "description": "Project Update request body data",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "projectable_id": {
+                        "title": "model id",
+                        "description": "model id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "projectable_type": {
+                        "title": "model type",
+                        "description": "model type",
+                        "type": "string",
+                        "example": "course/topic/module"
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "Name",
+                        "type": "string",
+                        "example": "Times "
+                    },
+                    "description": {
+                        "title": "Description",
+                        "description": "Description",
+                        "type": "string",
+                        "example": "This is a description "
+                    },
+                    "deadline": {
+                        "title": "Deadline",
+                        "description": "Deadline",
+                        "type": "string",
+                        "example": "2020-06-29 "
+                    },
+                    "points": {
+                        "title": "Points if answered",
+                        "description": "Points if answered",
+                        "type": "integer",
+                        "example": "10"
+                    }
+                },
+                "type": "object"
+            },
+            "QuestionCreateFormRequest": {
+                "title": "Question Create Form Request Fields",
+                "description": "Question Create request body data",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "quiz_id": {
+                        "title": "quiz id",
+                        "description": "quiz id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "question": {
+                        "title": "Question please",
+                        "description": "Question please",
+                        "type": "string",
+                        "example": "What is ???"
+                    },
+                    "essay": {
+                        "title": "is the question an essay?",
+                        "description": "is the question an essay?",
+                        "type": "string",
+                        "example": "true/false"
+                    },
+                    "answer": {
+                        "title": "Answe of the essay",
+                        "description": "Answe of the essay",
+                        "type": "string",
+                        "example": "this is an answer "
+                    },
+                    "points": {
+                        "title": "Points if answered",
+                        "description": "Points if answered",
+                        "type": "integer",
+                        "example": "10"
+                    }
+                },
+                "type": "object"
+            },
+            "QuestionUpdateFormRequest": {
+                "title": "Question Update Form Request Fields",
+                "description": "Question Update request body data",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "quiz_id": {
+                        "title": "quiz id",
+                        "description": "quiz id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "question": {
+                        "title": "Question please",
+                        "description": "Question please",
+                        "type": "string",
+                        "example": "What is ???"
+                    },
+                    "essay": {
+                        "title": "is the question an essay?",
+                        "description": "is the question an essay?",
+                        "type": "string",
+                        "example": "true/false"
+                    },
+                    "answer": {
+                        "title": "Answe of the essay",
+                        "description": "Answe of the essay",
+                        "type": "string",
+                        "example": "this is an answer "
+                    },
+                    "points": {
+                        "title": "Points if answered",
+                        "description": "Points if answered",
+                        "type": "integer",
+                        "example": "10"
+                    }
+                },
+                "type": "object"
+            },
+            "QuizCreateFormRequest": {
+                "title": "Quiz Create Form Request Fields",
+                "description": "Quiz Create request body data",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "quizable_id": {
+                        "title": "model id",
+                        "description": "model id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "quizable_type": {
+                        "title": "model type",
+                        "description": "model type",
+                        "type": "string",
+                        "example": "course/topic/module"
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "Name",
+                        "type": "string",
+                        "example": "Times "
+                    },
+                    "duration": {
+                        "title": "Duration of the question on the app",
+                        "description": "Duration of the question on the app",
+                        "type": "string",
+                        "example": "1000 "
+                    },
+                    "points": {
+                        "title": "Points if answered",
+                        "description": "Points if answered",
+                        "type": "integer",
+                        "example": "10"
+                    }
+                },
+                "type": "object"
+            },
+            "QuizUpdateFormRequest": {
+                "title": "Quiz Update Form Request Fields",
+                "description": "Quiz Update request body data",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "quizable_id": {
+                        "title": "model id",
+                        "description": "model id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "quizable_type": {
+                        "title": "model type",
+                        "description": "model type",
+                        "type": "string",
+                        "example": "course/topic/module"
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "Name",
+                        "type": "string",
+                        "example": "Times "
+                    },
+                    "duration": {
+                        "title": "Duration of the question on the app",
+                        "description": "Duration of the question on the app",
+                        "type": "string",
+                        "example": "1000 "
+                    },
+                    "points": {
+                        "title": "Points if answered",
+                        "description": "Points if answered",
+                        "type": "integer",
+                        "example": "10"
+                    }
+                },
+                "type": "object"
+            },
+            "TopicCreateFormRequest": {
+                "title": "Topic Create Form Request Fields",
+                "description": "Topic Create request body data",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "course_id": {
+                        "title": "module id",
+                        "description": "module id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "name": {
+                        "title": "Topic name",
+                        "description": "Topic name",
+                        "type": "string",
+                        "example": "This is a topic name"
+                    },
+                    "description": {
+                        "title": "Description",
+                        "description": "Description",
+                        "type": "string",
+                        "example": "This is a module"
+                    },
+                    "seconds": {
+                        "title": "Time in seconds",
+                        "description": "Time in seconds",
+                        "type": "string",
+                        "example": "40000"
+                    }
+                },
+                "type": "object"
+            },
+            "TopicMaterialCreateFormRequest": {
+                "title": "Topic Material Create Form Request Fields",
+                "description": "Topic Material Create request body data",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "materable_id": {
+                        "title": "model id",
+                        "description": "model id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "materable_type": {
+                        "title": "model type",
+                        "description": "model type",
+                        "type": "string",
+                        "example": "course/topic/module"
+                    },
+                    "link": {
+                        "title": "Link if any",
+                        "description": "Link if any",
+                        "type": "string",
+                        "example": "https:// "
+                    },
+                    "upload": {
+                        "title": "Upload File",
+                        "description": "Upload File",
+                        "type": "string",
+                        "example": "This is a description "
+                    }
+                },
+                "type": "object"
+            },
+            "TopicMaterialUpdateFormRequest": {
+                "title": "Topic Material Update Form Request Fields",
+                "description": "Topic Material Update request body data",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "materable_id": {
+                        "title": "model id",
+                        "description": "model id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "materable_type": {
+                        "title": "model type",
+                        "description": "model type",
+                        "type": "string",
+                        "example": "course/topic/module"
+                    },
+                    "link": {
+                        "title": "Link if any",
+                        "description": "Link if any",
+                        "type": "string",
+                        "example": "https:// "
+                    },
+                    "upload": {
+                        "title": "Upload File",
+                        "description": "Upload File",
+                        "type": "string",
+                        "example": "This is a description "
+                    }
+                },
+                "type": "object"
+            },
+            "TopicUpdateFormRequest": {
+                "title": "Topic Update Form Request Fields",
+                "description": "Topic Update request body data",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "course_id": {
+                        "title": "module id",
+                        "description": "module id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "name": {
+                        "title": "Topic name",
+                        "description": "Topic name",
+                        "type": "string",
+                        "example": "This is a topic name"
+                    },
+                    "description": {
+                        "title": "Description",
+                        "description": "Description",
+                        "type": "string",
+                        "example": "This is a module"
+                    },
+                    "seconds": {
+                        "title": "Time in seconds",
+                        "description": "Time in seconds",
+                        "type": "string",
+                        "example": "40000"
+                    }
+                },
+                "type": "object"
+            },
+            "ParticipantCourseCreateFormRequest": {
+                "title": "Participant Course Create Form Request Fields",
+                "description": "Participant Course Create request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "ParticipantCourseUpdateFormRequest": {
+                "title": "Participant Course Update Form Request Fields",
+                "description": "Participant Course Update request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "ParticipantMultipleChoiceCreateFormRequest": {
+                "title": "Participant Multiple Choice Create Form Request Fields",
+                "description": "Participant Multiple Choice Create request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "ParticipantMultipleChoiceUpdateFormRequest": {
+                "title": "Participant Multiple Choice Update Form Request Fields",
+                "description": "Participant Multiple Choice Update request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "ParticipantProjectCreateFormRequest": {
+                "title": "Participant Project Submit Update Form Request Fields",
+                "description": "Participant Project Submit Update request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "ParticipantProjectUpdateFormRequest": {
+                "title": "Participant Project Submit Update Form Request Fields",
+                "description": "Participant Project Submit Update request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "ParticipantQuestionCreateFormRequest": {
+                "title": "Participant Question Update Form Request Fields",
+                "description": "Participant Question Update request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "ParticipantQuestionUpdateFormRequest": {
+                "title": "Participant Question Update Form Request Fields",
+                "description": "Participant Question Update request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "ParticipantQuizCreateFormRequest": {
+                "title": "Participant Quiz Update Form Request Fields",
+                "description": "Participant Quiz Update request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "ParticipantQuizUpdateFormRequest": {
+                "title": "Participant Quiz Update Form Request Fields",
+                "description": "Participant Quiz Update request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "ParticipantTopicCreateFormRequest": {
+                "title": "Participant Topic Update Form Request Fields",
+                "description": "Participant Topic Update request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "ParticipantTopicUpdateFormRequest": {
+                "title": "Participant Topic Update Form Request Fields",
+                "description": "Participant Topic Update request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "UserLoginFormRequest": {
+                "title": "Sign in Form Request Fields",
+                "description": "sign in request body data",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "email": {
+                        "title": "User email",
+                        "description": "Email of the user",
+                        "type": "string",
+                        "example": "info@hdp.com"
+                    },
+                    "password": {
+                        "title": "User password",
+                        "description": "Password of the user",
+                        "type": "string",
+                        "example": "password"
+                    }
+                },
+                "type": "object"
+            },
+            "UserRegistrationFormRequest": {
+                "title": "Sign Up Form Request Fields",
+                "description": "sign up request body data",
+                "required": [
+                    "first_name"
+                ],
+                "properties": {
+                    "first_name": {
+                        "title": "User First Name",
+                        "description": "First name of the user",
+                        "type": "string",
+                        "example": "Schneider"
+                    },
+                    "Other_name": {
+                        "title": "User Other Name",
+                        "description": "Other name of the user",
+                        "type": "string",
+                        "example": "Komolafe"
+                    },
+                    "last_name": {
+                        "title": "User Last Name",
+                        "description": "Last name of the user",
+                        "type": "string",
+                        "example": "Busayo"
+                    },
+                    "type": {
+                        "title": "User Type",
+                        "description": "Type of the user instructor/participant",
+                        "type": "string",
+                        "example": "Type of the user instructor/participant"
+                    },
+                    "email": {
+                        "title": "User email",
+                        "description": "Email of the user",
+                        "type": "string",
+                        "example": "Email of the user"
+                    },
+                    "password": {
+                        "title": "User password",
+                        "description": "Password of the user",
+                        "type": "string",
+                        "example": "password"
+                    }
+                },
+                "type": "object"
+            },
+            "UserUpdateFormRequest": {
+                "title": "User Update Form Request Fields",
+                "description": "User Update request body data",
+                "required": [
+                    "first_name"
+                ],
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Learna Application",
+            "description": "API Endpoints of Projects"
+        }
+    ]
+}

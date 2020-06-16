@@ -13,8 +13,8 @@ class UserController extends ApiController
 {
      /**
      * @OA\Post(
-     *      path="/api/v1/user/signup",
-     *      operationId="signUp",
+     *      path="/api/v1/user/register",
+     *      operationId="register",
      *      tags={"authentication"},
      *      summary="Sign Up a new user",
      *      description="Returns a newly registered user data",

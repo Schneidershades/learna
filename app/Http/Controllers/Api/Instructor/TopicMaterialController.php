@@ -7,7 +7,7 @@ use App\Http\Controllers\Api\ApiController;
 use App\Http\Requests\Instructor\TopicMaterialCreateFormRequest;
 use App\Http\Requests\Instructor\TopicMaterialUpdateFormRequest;
 
-class MaterialMaterialController extends ApiController
+class TopicMaterialController extends ApiController
 {
       /**
     * @OA\Post(

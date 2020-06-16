@@ -11,7 +11,7 @@ class InstructorController extends ApiController
 	  /**
     * @OA\Put(
     *      path="/api/v1/instructor/instructor-profile/{id}",
-    *      operationId="updateCourse",
+    *      operationId="updateProfile",
     *      tags={"instructor"},
     *      summary="update an instructor's profile ",
     *      description="update an instructor's profile ",
