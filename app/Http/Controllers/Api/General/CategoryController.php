@@ -33,7 +33,6 @@ class CategoryController extends ApiController
     *          response=403,
     *          description="Forbidden"
     *      ),
-    *      security={ {"bearerAuth": {}} },
     * )
     */
    

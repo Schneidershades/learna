@@ -8,7 +8,7 @@ class CourseObserver
 {
     public function creating(Course $course)
     {
-        $course->instructor_id = auth()->user()->instructor->id;
+        $course->user_id = auth()->user()->id;
     }
     /**
      * Handle the course "created" event.

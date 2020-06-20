@@ -33,7 +33,6 @@ class CurrencyController extends ApiController
     *          response=403,
     *          description="Forbidden"
     *      ),
-    *      security={ {"bearerAuth": {}} },
     * )
     */
    

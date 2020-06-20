@@ -37,12 +37,7 @@
                     "403": {
                         "description": "Forbidden"
                     }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/v1/general/currencies": {
@@ -69,12 +64,7 @@
                     "403": {
                         "description": "Forbidden"
                     }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/v1/instructor/instructor-course": {
@@ -5169,9 +5159,9 @@
                     },
                     "type": {
                         "title": "User Type",
-                        "description": "Type of the user instructor/participant",
+                        "description": "Type of the user Instructor/Participant",
                         "type": "string",
-                        "example": "Type of the user instructor/participant"
+                        "example": "Type of the user Instructor/Participant"
                     },
                     "email": {
                         "title": "User email",
