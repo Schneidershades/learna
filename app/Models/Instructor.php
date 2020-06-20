@@ -23,5 +23,10 @@ class Instructor extends Model
     {
     	return $this->hasMany(Course::class);
     }
+
+    public function quizzes()
+    {
+        return $this->morphMany(Project::class, 'quizable');
+    }
 }
 

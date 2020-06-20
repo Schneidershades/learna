@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {       
+	
     Route::group(['prefix' => 'user', 'namespace' => 'Api\User'], function(){
 		Route::post('register', 'UserController@register');
     	Route::post('login', 'UserController@login');
@@ -21,5 +22,10 @@ Route::prefix('v1')->group(function () {
     	Route::resource('instructor-material', 'TopicMaterialController');
     	Route::resource('instructor-topic', 'TopicController');
 	});
+
+	Route::group(['prefix' => 'participant', 'namespace' => 'Api\Participant'], function(){
+		
+	});
+
 });
 

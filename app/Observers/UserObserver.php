@@ -19,16 +19,21 @@ class UserObserver
     public function created(User $user)
     {
         // event(new RegistrationEvent($user));
-        if($user->type == 'participant'){
+        if($user->type == 'Participant'){
         	$participant = new Participant;
         	$participant->user_id =  $user->id;
         	$participant->save();
         }
 
-        if($user->type == 'instructor'){
+        if($user->type == 'Instructor'){
         	$instructor = new Instructor;
         	$instructor->user_id =  $user->id;
         	$instructor->save();
-        }
+
+            $wallet =  new Wallet;
+            $wallet->user_id =  $user->id;
+            $wallet->currency_id =  $user->currency_id;
+            $wallet->save();
+         }
     }
 }

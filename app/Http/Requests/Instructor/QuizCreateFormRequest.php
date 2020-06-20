@@ -89,7 +89,7 @@ class QuizCreateFormRequest extends FormRequest
     {
         return [
             'quizable_id' => 'required|int',
-            'quizable_type' => 'required|string',
+            'quizable_type' => 'required|string|max:255|in:Topic,Module,Course',
             'name' => 'required|string',
             'duration' => 'required|int',
             'points' => 'required|int',

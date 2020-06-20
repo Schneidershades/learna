@@ -100,7 +100,7 @@ class ProjectCreateFormRequest extends FormRequest
     {
         return [
             'projectable_id' => 'required|int',
-            'projectable_type' => 'required|string',
+            'projectable_type' => 'required|string|max:255|in:Topic,Module,Course',
             'name' => 'required|string',
             'description' => 'required|string',
             'deadline' => 'required|date',

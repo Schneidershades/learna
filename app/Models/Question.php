@@ -10,4 +10,5 @@ class Question extends Model
 {
     public $oneItem = QuestionResource::class;
     public $allItems = QuestionCollection::class;
+
 }

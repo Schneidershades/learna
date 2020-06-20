@@ -10,4 +10,9 @@ class Quiz extends Model
 {
     public $oneItem = QuizResource::class;
     public $allItems = QuizCollection::class;
+
+    public function quizable()
+    {
+        return $this->morphTo();
+    }
 }

@@ -20,8 +20,6 @@ class CreateTopicsTable extends Migration
             $table->integer('description')->index()->unsigned();
             $table->integer('seconds')->index()->unsigned();
             $table->timestamps();
-
-            $table->foreign('parent_topic_id')->references('id')->on('topics')->onDelete('cascade');
         });
     }
 

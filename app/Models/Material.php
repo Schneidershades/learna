@@ -22,4 +22,9 @@ class Material extends Model
     {
     	return $this->hasMany(Topic::class);
     }
+
+    public function materable()
+    {
+        return $this->morphTo();
+    }
 }

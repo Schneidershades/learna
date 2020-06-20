@@ -10,4 +10,9 @@ class MultipleChoice extends Model
 {
     public $oneItem = MultpleChoiceResource::class;
     public $allItems = MultpleChoiceCollection::class;
+
+    public function participants()
+    {
+    	return $this->hasMany(ParticipantMultipleChoice::class);
+    }
 }

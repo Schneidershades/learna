@@ -78,7 +78,7 @@ class TopicMaterialCreateFormRequest extends FormRequest
     {
         return [
             'materable_id' => 'required|int',
-            'materable_type' => 'required|string',
+            'materable_type' => 'required|string|max:255|in:Topic,Module,Course',
             'link' => 'required|string',
             'upload' => 'file',
         ];

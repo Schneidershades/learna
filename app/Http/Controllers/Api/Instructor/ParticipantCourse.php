@@ -19,7 +19,7 @@ class ParticipantCourse extends ApiController
     *          description="Successful signin",
     *          @OA\MediaType(
     *             mediaType="application/json",
-    *         ),
+    *         ), 
     *       ),
     *      @OA\Response(
     *          response=400,

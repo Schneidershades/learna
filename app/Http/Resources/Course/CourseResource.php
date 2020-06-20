@@ -16,7 +16,7 @@ class CourseResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'instructor' => $this->instructor,
+            'instructor' => new InstructorResource($this->instructor),
             'name' => $this->name,
             'intro_link' => $this->intro_link,
             'short_description' => $this->short_description,
@@ -29,8 +29,8 @@ class CourseResource extends JsonResource
             'duration' => $this->duration,
             'price' => $this->price,
             'availablilty' => $this->availablilty,
-            // 'topics' => TopicResource::collection('topics'),
-            // 'topics' => $this->topics,
+            'modules' => ModuleResource::collection($this->modules),
+            'participants' => ModuleResource::collection($this->courseParticipants),
         ];
     }
 }

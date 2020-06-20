@@ -17,8 +17,8 @@ class ProjectResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'course' => new CourseResource($this->course),
-            'topic' => new TopicResource($this->topic),
+            'id' => $this->projectable_id,
+            'type' => $this->projectable_type,
             'name' => $this->name,
             'description' => $this->description,
             'deadline' => $this->deadline,

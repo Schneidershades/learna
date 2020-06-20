@@ -10,4 +10,15 @@ class Project extends Model
 {
     public $oneItem = ProjectResource::class;
     public $allItems = ProjectCollection::class;
+
+    public function projectable()
+    {
+        return $this->morphTo();
+    }
+
+    public function quizzes()
+    {
+        return $this->morphMany(Project::class, 'quizable');
+    }
+
 }

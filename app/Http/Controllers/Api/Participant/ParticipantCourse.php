@@ -228,11 +228,4 @@ class ParticipantCourse extends ApiController
     *      security={ {"bearerAuth": {}} },
     * )
     */
-
-    public function destroy($id)
-    {
-        $model = ParticipantCourse::findOrFail($id);
-        $model->delete();
-        return $this->showMessage('course deleted');
-    }
 }
