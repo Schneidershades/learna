@@ -25,6 +25,7 @@ class CreateCoursesTable extends Migration
             $table->string('testimonial_links')->nullable();
             $table->string('start_date')->nullable();
             $table->string('end_date')->nullable();
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->string('type')->nullable();
             $table->integer('duration')->nullable();
             $table->double('price')->nullable();

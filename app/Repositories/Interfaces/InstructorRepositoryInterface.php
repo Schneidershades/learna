@@ -2,6 +2,6 @@
 
 namespace App\Interfaces\Repositories;
 
-interface CourseRepositoryInterface
+interface InstructorRepositoryInterface
 {
 }

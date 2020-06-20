@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Currency;
+namespace App\Http\Resources\Category;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CurrencyResource extends JsonResource
+class CategoryResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,9 +16,7 @@ class CurrencyResource extends JsonResource
     {
         return [
             'name' => $this->name,
-            'code' => $this->code,
-            'sign' => $this->sign,
-            'short_name' => $this->short_name,
+            'slug' => $this->slug,
         ];
     }
 }

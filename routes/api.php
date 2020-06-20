@@ -23,6 +23,11 @@ Route::prefix('v1')->group(function () {
     	Route::resource('instructor-topic', 'TopicController');
 	});
 
+    Route::group(['prefix' => 'general', 'namespace' => 'Api\General'], function(){
+        Route::resource('currencies', 'CurrencyController');
+        Route::resource('categories', 'CategoryController');
+    });
+
 	Route::group(['prefix' => 'participant', 'namespace' => 'Api\Participant'], function(){
 		
 	});

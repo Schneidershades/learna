@@ -15,6 +15,7 @@ class CurrencyTableSeeder extends Seeder
         $currency = Currency::create([
             'code' => 'NGN',
             'name' => 'Nigerian Naira',
+            'sign' => 'N',
         ]);
     }
 }

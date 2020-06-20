@@ -52,8 +52,8 @@ class UserRegistrationFormRequest extends FormRequest
     /**
      * @OA\Property(
      *      title="User Type",
-     *      description="Type of the user instructor/participant",
-     *      example="Type of the user instructor/participant"
+     *      description="Type of the user Instructor/Participant",
+     *      example="Type of the user Instructor/Participant"
      * )
      *
      * @var string

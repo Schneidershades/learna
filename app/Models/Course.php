@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Instructor;
 use App\Models\Topic;
+use App\Models\Category;
 use App\Models\ParticipantCourse;
 use App\Models\Payment;
 use App\Models\Project;
@@ -16,6 +17,11 @@ class Course extends Model
 {
     public $oneItem = CourseResource::class;
     public $allItems = CourseCollection::class;
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
     public function instructor()
     {
