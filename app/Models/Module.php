@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\Topic:
-use App\Models\Course:
+use App\Models\Topic;
+use App\Models\Course;
+use App\Models\ParticipantModule;
 use Illuminate\Database\Eloquent\Model;
 
 class Module extends Model
@@ -31,5 +32,10 @@ class Module extends Model
     public function materials()
     {
         return $this->morphMany(Material::class, 'materiable');
+    }
+
+    public function participantModule()
+    {
+        return $this->hasMany(ParticipantModule::class);
     }
 }

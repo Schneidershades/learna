@@ -27,7 +27,7 @@ class Course extends Model
     	return $this->hasMany(Topic::class);
     }
 
-    public function courseParticipants()
+    public function participantCourses()
     {
         return $this->hasMany(ParticipantCourse::class);
     }

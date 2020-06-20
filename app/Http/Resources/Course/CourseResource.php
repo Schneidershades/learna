@@ -30,7 +30,7 @@ class CourseResource extends JsonResource
             'price' => $this->price,
             'availablilty' => $this->availablilty,
             'modules' => ModuleResource::collection($this->modules),
-            'participants' => ModuleResource::collection($this->courseParticipants),
+            'participants' => ParticipantCourseResource::collection($this->courseParticipants),
         ];
     }
 }

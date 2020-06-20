@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Course;
 use App\Models\Topic;
+use App\Models\ParticipantTopic;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Resources\Topic\TopicResource;
 use App\Http\Resources\Topic\TopicCollection;
@@ -19,11 +20,6 @@ class Topic extends Model
     	return $this->belongsTo(Module::class);
     }
 
-    public function childTopics()
-    {
-    	return $this->hasMany(Topic::class, 'parent_topic_id');
-    }
-
     public function projects()
     {
         return $this->morphMany(Project::class, 'projectable');
@@ -37,5 +33,10 @@ class Topic extends Model
     public function materials()
     {
         return $this->morphMany(Material::class, 'materiable');
+    }
+
+    public function participantTopics()
+    {
+        return $this->hasMany(ParticipantTopic::class);
     }
 }
