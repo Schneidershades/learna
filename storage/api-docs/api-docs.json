@@ -5145,7 +5145,7 @@
                         "type": "string",
                         "example": "Schneider"
                     },
-                    "Other_name": {
+                    "other_name": {
                         "title": "User Other Name",
                         "description": "Other name of the user",
                         "type": "string",
@@ -5167,13 +5167,19 @@
                         "title": "User email",
                         "description": "Email of the user",
                         "type": "string",
-                        "example": "Email of the user"
+                        "example": "admin@admin.com"
                     },
                     "password": {
                         "title": "User password",
                         "description": "Password of the user",
                         "type": "string",
                         "example": "password"
+                    },
+                    "currency_id": {
+                        "title": "User Currency",
+                        "description": "Currency of the user",
+                        "type": "integer",
+                        "example": "1"
                     }
                 },
                 "type": "object"

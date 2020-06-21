@@ -7,6 +7,7 @@ namespace App\Observers;
 use App\Models\User;
 use App\Models\Instructor;
 use App\Models\Participant;
+use App\Models\Wallet;
 
 class UserObserver
 {

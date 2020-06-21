@@ -4,7 +4,6 @@ namespace App\Traits\Api;
 
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,13 +16,11 @@ trait ApiResponser
 
     protected function errorResponse($message, $code)
     {
-        // return response()->json(['error' => $message, 'code' => $code], $code);
         return response()->json(['data' => ['error' => $message, 'code' => $code]], $code);
     }
 
     protected function showAll(Collection $collection, $code = 200)
     {
-        // dd($collection);
         if ($collection->isEmpty()) {
             return $this->successResponse(['data' => $collection], $code);
         }
@@ -32,7 +29,11 @@ trait ApiResponser
 
         $collection = $this->filterData($collection, $transformer);
         $collection = $this->sortData($collection, $transformer);
-        // $collection = $this->paginate($collection);
+
+        if(request()->per_page > 0){
+            $collection = $this->paginate($collection);                     
+        }
+
         $collection = $this->transformData($collection, $transformer);
         $collection = $this->cacheResponse($collection);
         return $collection;
@@ -94,12 +95,6 @@ trait ApiResponser
 
     protected function paginate(Collection $collection)
     {
-        $rules = [
-            'per_page' => 'integer|min:2|max:50',
-        ];
-
-        Validator::validate(request()->all(), $rules);
-
         $page = LengthAwarePaginator::resolveCurrentPage();
 
         $perPage = 15;

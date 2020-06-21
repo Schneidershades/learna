@@ -41,7 +41,7 @@ class CourseController extends ApiController
    
     public function index()
     {
-        return $this->showAll(Course::where('instructor_id', auth()->user()->instructor->id)->get());
+        return $this->showAll(Course::where('user_id', auth()->user()->id)->get());
     }
 
      /**

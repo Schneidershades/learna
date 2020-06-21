@@ -36,7 +36,7 @@ class UserRegistrationFormRequest extends FormRequest
      *
      * @var string
      */
-    public $Other_name;
+    public $other_name;
 
     /**
      * @OA\Property(
@@ -64,7 +64,7 @@ class UserRegistrationFormRequest extends FormRequest
      * @OA\Property(
      *      title="User email",
      *      description="Email of the user",
-     *      example="Email of the user"
+     *      example="admin@admin.com"
      * )
      *
      * @var string
@@ -81,6 +81,17 @@ class UserRegistrationFormRequest extends FormRequest
      * @var string
      */
     public $password;
+
+    /**
+     * @OA\Property(
+     *      title="User Currency",
+     *      description="Currency of the user",
+     *      example="1"
+     * )
+     *
+     * @var int
+     */
+    public $currency_id;
     
     /**
      * Determine if the user is authorized to make this request.
@@ -103,6 +114,7 @@ class UserRegistrationFormRequest extends FormRequest
             'first_name' => 'required|string|max:255',
             'other_name' => 'string|max:255',
             'last_name' => 'required|string|max:255',
+            'currency_id' => 'required|string|exists:currencies,id',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
             'type' => 'required|string|max:255|in:Instructor,Participant',

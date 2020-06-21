@@ -18,4 +18,24 @@ class CategoryCollection extends ResourceCollection
             'data' => CategoryResource::collection($this->collection)
         ];
     }
+
+    public static function originalAttribute($index)
+    {
+        $attribute = [
+            'catName' => 'name',
+            'catSlug' => 'slug',
+        ];
+
+        return isset($attribute[$index]) ? $attribute[$index] : null;
+    }
+
+     public static function transformedAttribute($index)
+    {
+        $attribute = [
+            'name' => 'catName',
+            'slug' => 'catSlug',
+        ];
+
+        return isset($attribute[$index]) ? $attribute[$index] : null;
+    }
 }

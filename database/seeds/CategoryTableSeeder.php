@@ -16,5 +16,17 @@ class CategoryTableSeeder extends Seeder
             'name' => 'fashion',
             'slug' => 'fashion',
         ]);
+        $category = Category::create([
+            'name' => 'health',
+            'slug' => 'health',
+        ]);
+        $category = Category::create([
+            'name' => 'communication',
+            'slug' => 'communication',
+        ]);
+        $category = Category::create([
+            'name' => 'sports',
+            'slug' => 'sports',
+        ]);
     }
 }

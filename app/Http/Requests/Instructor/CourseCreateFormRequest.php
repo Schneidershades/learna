@@ -164,6 +164,17 @@ class CourseCreateFormRequest extends FormRequest
      */
     public $availablilty;
 
+    /**
+     * @OA\Property(
+     *      title="Course Category",
+     *      description="Category of the user",
+     *      example="1"
+     * )
+     *
+     * @var int
+     */
+    public $category_id;
+
 
     /**
      * Determine if the user is authorized to make this request.
@@ -197,6 +208,7 @@ class CourseCreateFormRequest extends FormRequest
             'free' => 'boolean',
             'price' => 'int',
             'availablilty' => 'string|max:255',
+            'category_id' => 'required|string|exists:categories,id',
         ];
     }
 }
