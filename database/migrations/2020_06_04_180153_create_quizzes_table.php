@@ -19,7 +19,12 @@ class CreateQuizzesTable extends Migration
             $table->string('quizable_type')->nullable();
             $table->string('name')->nullable();
             $table->integer('duration')->nullable();
+            $table->integer('timer')->nullable();
             $table->integer('points')->nullable();
+            $table->boolean('completed')->default(false);
+            $table->boolean('satisfactory')->default(false);
+            $table->boolean('comment')->default(false);
+            $table->string('status')->default('open');
             $table->timestamps();
         });
     }

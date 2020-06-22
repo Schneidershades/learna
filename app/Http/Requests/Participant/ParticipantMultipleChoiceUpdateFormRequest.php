@@ -17,6 +17,28 @@ use Illuminate\Foundation\Http\FormRequest;
 class ParticipantMultipleChoiceUpdateFormRequest extends FormRequest
 {
     /**
+     * @OA\Property(
+     *      title="Multiple Choice id",
+     *      description="Multiple Choice id",
+     *      example="1"
+     * )
+     *
+     * @var int
+     */
+    public $multiple_choice_id;
+
+    /**
+     * @OA\Property(
+     *      title="Status",
+     *      description="Status",
+     *      example="Opened/Closed"
+     * )
+     *
+     * @var string
+     */
+    public $staus;
+    
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -34,7 +56,8 @@ class ParticipantMultipleChoiceUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'multiple_choice_id' => 'required|int|exists:multiple_choices,id',
+            'status' => 'required|string',
         ];
     }
 }

@@ -187,45 +187,4 @@ class ParticipantCourse extends ApiController
 
         return $this->showMessage('course updated');
     }
-
-     /**
-    * @OA\Delete(
-    *      path="/api/v1/participant/participant-course/{id}",
-    *      operationId="deleteParticipantCourse",
-    *      tags={"participant"},
-    *      summary="delete a participant's course ",
-    *      description="delete a participant's course ",
-    *      
-     *      @OA\Parameter(
-     *          name="id",
-     *          description="ParticipantCourse ID",
-     *          required=true,
-     *          in="path",
-     *          @OA\Schema(
-     *              type="integer"
-     *          )
-     *      ),
-     *      
-    *      @OA\Response(
-    *          response=200,
-    *          description="Successful signin",
-    *          @OA\MediaType(
-    *             mediaType="application/json",
-    *         ),
-    *       ),
-    *      @OA\Response(
-    *          response=400,
-    *          description="Bad Request"
-    *      ),
-    *      @OA\Response(
-    *          response=401,
-    *          description="Unauthenticated",
-    *      ),
-    *      @OA\Response(
-    *          response=403,
-    *          description="Forbidden"
-    *      ),
-    *      security={ {"bearerAuth": {}} },
-    * )
-    */
 }

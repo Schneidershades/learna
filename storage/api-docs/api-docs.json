@@ -847,213 +847,6 @@
                 ]
             }
         },
-        "/api/v1/instructor/participant-multiple-choice": {
-            "get": {
-                "tags": [
-                    "instructor"
-                ],
-                "summary": "Show all multiple choice of a participant",
-                "description": "Show all multiple choice of a participant",
-                "operationId": "allInstructorParticipantMultipleChoices",
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "post": {
-                "tags": [
-                    "instructor"
-                ],
-                "summary": "create a participant's multiple choice ",
-                "description": "create a participant's multiple choice ",
-                "operationId": "createInstructorParticipantMultipleChoice",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/InstructorParticipantMultipleChoiceCreateFormRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/instructor/participant-multiple-choice/{id}": {
-            "get": {
-                "tags": [
-                    "instructor"
-                ],
-                "summary": "show a participant's multiple choice details ",
-                "description": "show a participant's multiple choice details ",
-                "operationId": "showInstructorParticipantMultipleChoice",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ParticipantMultipleChoice ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "put": {
-                "tags": [
-                    "instructor"
-                ],
-                "summary": "update a participant's multiple choice ",
-                "description": "update a participant's multiple choice ",
-                "operationId": "updateInstructorParticipantMultipleChoice",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ParticipantMultipleChoice ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/InstructorParticipantMultipleChoiceUpdateFormRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "delete": {
-                "tags": [
-                    "instructor"
-                ],
-                "summary": "delete a participant's multiple choice ",
-                "description": "delete a participant's multiple choice ",
-                "operationId": "deleteInstructorParticipantMultipleChoice",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ParticipantMultipleChoice ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
         "/api/v1/instructor/participant-project": {
             "get": {
                 "tags": [
@@ -2931,254 +2724,6 @@
                         "bearerAuth": []
                     }
                 ]
-            },
-            "delete": {
-                "tags": [
-                    "participant"
-                ],
-                "summary": "delete a participant's course ",
-                "description": "delete a participant's course ",
-                "operationId": "deleteParticipantCourse",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ParticipantCourse ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/participant/participant-multiple-choice": {
-            "get": {
-                "tags": [
-                    "participant"
-                ],
-                "summary": "Show all multiple choice of a participant",
-                "description": "Show all multiple choice of a participant",
-                "operationId": "allParticipantMultipleChoices",
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "post": {
-                "tags": [
-                    "participant"
-                ],
-                "summary": "create a participant's multiple choice ",
-                "description": "create a participant's multiple choice ",
-                "operationId": "createParticipantMultipleChoice",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/ParticipantMultipleChoiceCreateFormRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/participant/participant-multiple-choice/{id}": {
-            "get": {
-                "tags": [
-                    "participant"
-                ],
-                "summary": "show a participant's multiple choice details ",
-                "description": "show a participant's multiple choice details ",
-                "operationId": "showParticipantMultipleChoice",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ParticipantMultipleChoice ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "put": {
-                "tags": [
-                    "participant"
-                ],
-                "summary": "update a participant's multiple choice ",
-                "description": "update a participant's multiple choice ",
-                "operationId": "updateParticipantMultipleChoice",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ParticipantMultipleChoice ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/ParticipantMultipleChoiceUpdateFormRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "delete": {
-                "tags": [
-                    "participant"
-                ],
-                "summary": "delete a participant's multiple choice ",
-                "description": "delete a participant's multiple choice ",
-                "operationId": "deleteParticipantMultipleChoice",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ParticipantMultipleChoice ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
             }
         },
         "/api/v1/participant/participant-project": {
@@ -3323,47 +2868,6 @@
                         }
                     }
                 },
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "delete": {
-                "tags": [
-                    "participant"
-                ],
-                "summary": "delete a participant's project ",
-                "description": "delete a participant's project ",
-                "operationId": "deleteParticipantProject",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ParticipantProject ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -3552,47 +3056,6 @@
                         "bearerAuth": []
                     }
                 ]
-            },
-            "delete": {
-                "tags": [
-                    "participant"
-                ],
-                "summary": "delete a participant's question ",
-                "description": "delete a participant's question ",
-                "operationId": "deleteParticipantQuestion",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ParticipantQuestion ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
             }
         },
         "/api/v1/participant/participant-quiz": {
@@ -3759,47 +3222,6 @@
                         "bearerAuth": []
                     }
                 ]
-            },
-            "delete": {
-                "tags": [
-                    "participant"
-                ],
-                "summary": "delete a participant's quiz ",
-                "description": "delete a participant's quiz ",
-                "operationId": "deleteParticipantQuiz",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ParticipantQuiz ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
             }
         },
         "/api/v1/participant/participant-topic": {
@@ -3944,47 +3366,6 @@
                         }
                     }
                 },
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "delete": {
-                "tags": [
-                    "participant"
-                ],
-                "summary": "delete a participant's topic ",
-                "description": "delete a participant's topic ",
-                "operationId": "deleteParticipantTopic",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ParticipantTopic ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -4264,7 +3645,10 @@
                         "example": "3000"
                     },
                     "free": {
-                        "type": "integer"
+                        "title": "Free Course ?",
+                        "description": "Free Course",
+                        "type": "integer",
+                        "example": "false"
                     },
                     "price": {
                         "type": "integer"
@@ -4274,6 +3658,12 @@
                         "description": "Course Available",
                         "type": "string",
                         "example": "true"
+                    },
+                    "category_id": {
+                        "title": "Course Category",
+                        "description": "Category of the user",
+                        "type": "integer",
+                        "example": "1"
                     }
                 },
                 "type": "object"
@@ -4352,7 +3742,10 @@
                         "example": "3000"
                     },
                     "free": {
-                        "type": "integer"
+                        "title": "Free Course ?",
+                        "description": "Free Course",
+                        "type": "integer",
+                        "example": "false"
                     },
                     "price": {
                         "type": "integer"
@@ -4362,6 +3755,12 @@
                         "description": "Course Available",
                         "type": "string",
                         "example": "true"
+                    },
+                    "category_id": {
+                        "title": "Course Category",
+                        "description": "Category of the user",
+                        "type": "integer",
+                        "example": "1"
                     }
                 },
                 "type": "object"
@@ -4919,13 +4318,13 @@
                     "email"
                 ],
                 "properties": {
-                    "materable_id": {
+                    "materiable_id": {
                         "title": "model id",
                         "description": "model id",
                         "type": "integer",
                         "example": "1"
                     },
-                    "materable_type": {
+                    "materiable_type": {
                         "title": "model type",
                         "description": "model type",
                         "type": "string",
@@ -4953,13 +4352,13 @@
                     "email"
                 ],
                 "properties": {
-                    "materable_id": {
+                    "materiable_id": {
                         "title": "model id",
                         "description": "model id",
                         "type": "integer",
                         "example": "1"
                     },
-                    "materable_type": {
+                    "materiable_type": {
                         "title": "model type",
                         "description": "model type",
                         "type": "string",
@@ -5020,6 +4419,20 @@
                 "required": [
                     "email"
                 ],
+                "properties": {
+                    "course_id": {
+                        "title": "course id",
+                        "description": "course id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "staus": {
+                        "title": "Course Status",
+                        "description": "Course Status",
+                        "type": "string",
+                        "example": "Opened/Closed"
+                    }
+                },
                 "type": "object"
             },
             "ParticipantCourseUpdateFormRequest": {
@@ -5028,6 +4441,20 @@
                 "required": [
                     "email"
                 ],
+                "properties": {
+                    "course_id": {
+                        "title": "course id",
+                        "description": "course id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "staus": {
+                        "title": "Course Status",
+                        "description": "Course Status",
+                        "type": "string",
+                        "example": "Opened/Closed"
+                    }
+                },
                 "type": "object"
             },
             "ParticipantMultipleChoiceCreateFormRequest": {
@@ -5036,6 +4463,20 @@
                 "required": [
                     "email"
                 ],
+                "properties": {
+                    "multiple_choice_id": {
+                        "title": "Multiple Choice id",
+                        "description": "Multiple Choice id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "staus": {
+                        "title": "Status",
+                        "description": "Status",
+                        "type": "string",
+                        "example": "Opened/Closed"
+                    }
+                },
                 "type": "object"
             },
             "ParticipantMultipleChoiceUpdateFormRequest": {
@@ -5044,6 +4485,20 @@
                 "required": [
                     "email"
                 ],
+                "properties": {
+                    "multiple_choice_id": {
+                        "title": "Multiple Choice id",
+                        "description": "Multiple Choice id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "staus": {
+                        "title": "Status",
+                        "description": "Status",
+                        "type": "string",
+                        "example": "Opened/Closed"
+                    }
+                },
                 "type": "object"
             },
             "ParticipantProjectCreateFormRequest": {
@@ -5052,6 +4507,38 @@
                 "required": [
                     "email"
                 ],
+                "properties": {
+                    "project_id": {
+                        "title": "Project id",
+                        "description": "Project id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "staus": {
+                        "title": "Status",
+                        "description": "Status",
+                        "type": "string",
+                        "example": "Opened/Closed"
+                    },
+                    "link": {
+                        "title": "Project Link",
+                        "description": "Project Link",
+                        "type": "string",
+                        "example": "https://"
+                    },
+                    "project_upload": {
+                        "title": "Project Upload",
+                        "description": "Project Upload",
+                        "type": "string",
+                        "example": "https://"
+                    },
+                    "text": {
+                        "title": "text",
+                        "description": "text",
+                        "type": "string",
+                        "example": "essay description"
+                    }
+                },
                 "type": "object"
             },
             "ParticipantProjectUpdateFormRequest": {
@@ -5060,6 +4547,38 @@
                 "required": [
                     "email"
                 ],
+                "properties": {
+                    "project_id": {
+                        "title": "Project id",
+                        "description": "Project id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "staus": {
+                        "title": "Status",
+                        "description": "Status",
+                        "type": "string",
+                        "example": "Opened/Closed"
+                    },
+                    "link": {
+                        "title": "Project Link",
+                        "description": "Project Link",
+                        "type": "string",
+                        "example": "https://"
+                    },
+                    "project_upload": {
+                        "title": "Project Upload",
+                        "description": "Project Upload",
+                        "type": "string",
+                        "example": "https://"
+                    },
+                    "text": {
+                        "title": "text",
+                        "description": "text",
+                        "type": "string",
+                        "example": "essay description"
+                    }
+                },
                 "type": "object"
             },
             "ParticipantQuestionCreateFormRequest": {
@@ -5068,6 +4587,20 @@
                 "required": [
                     "email"
                 ],
+                "properties": {
+                    "question_id": {
+                        "title": "Question id",
+                        "description": "Question id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "staus": {
+                        "title": "Status",
+                        "description": "Status",
+                        "type": "string",
+                        "example": "Opened/Closed"
+                    }
+                },
                 "type": "object"
             },
             "ParticipantQuestionUpdateFormRequest": {
@@ -5076,6 +4609,20 @@
                 "required": [
                     "email"
                 ],
+                "properties": {
+                    "question_id": {
+                        "title": "Question id",
+                        "description": "Question id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "staus": {
+                        "title": "Status",
+                        "description": "Status",
+                        "type": "string",
+                        "example": "Opened/Closed"
+                    }
+                },
                 "type": "object"
             },
             "ParticipantQuizCreateFormRequest": {
@@ -5084,6 +4631,20 @@
                 "required": [
                     "email"
                 ],
+                "properties": {
+                    "quiz_id": {
+                        "title": "Quiz id",
+                        "description": "Quiz id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "staus": {
+                        "title": "Status",
+                        "description": "Status",
+                        "type": "string",
+                        "example": "Opened/Closed"
+                    }
+                },
                 "type": "object"
             },
             "ParticipantQuizUpdateFormRequest": {
@@ -5092,6 +4653,20 @@
                 "required": [
                     "email"
                 ],
+                "properties": {
+                    "quiz_id": {
+                        "title": "Quiz id",
+                        "description": "Quiz id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "staus": {
+                        "title": "Status",
+                        "description": "Status",
+                        "type": "string",
+                        "example": "Opened/Closed"
+                    }
+                },
                 "type": "object"
             },
             "ParticipantTopicCreateFormRequest": {
@@ -5100,6 +4675,20 @@
                 "required": [
                     "email"
                 ],
+                "properties": {
+                    "project_id": {
+                        "title": "Topic id",
+                        "description": "Topic id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "staus": {
+                        "title": "Status",
+                        "description": "Status",
+                        "type": "string",
+                        "example": "Opened/Closed"
+                    }
+                },
                 "type": "object"
             },
             "ParticipantTopicUpdateFormRequest": {
@@ -5108,6 +4697,20 @@
                 "required": [
                     "email"
                 ],
+                "properties": {
+                    "topic_id": {
+                        "title": "Quiz id",
+                        "description": "Quiz id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "staus": {
+                        "title": "Status",
+                        "description": "Status",
+                        "type": "string",
+                        "example": "Opened/Closed"
+                    }
+                },
                 "type": "object"
             },
             "UserLoginFormRequest": {

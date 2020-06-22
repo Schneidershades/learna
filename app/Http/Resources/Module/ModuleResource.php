@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Module;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Topic\TopicResource;
 
 class ModuleResource extends JsonResource
 {
@@ -17,7 +18,10 @@ class ModuleResource extends JsonResource
         return [
             'name' => $this->name,
             'description' => $this->description,
-            'seconds' => $this->seconds,
+            'topics' => TopicResource::collection($this->topics),
+            'projects' => ProjectResource::collection($this->projects),
+            'materials' => ProjectResource::collection($this->materials),
+            'quizes' => ProjectResource::collection($this->quiz),
         ];
     }
 }

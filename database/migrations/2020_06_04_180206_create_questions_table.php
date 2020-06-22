@@ -19,6 +19,7 @@ class CreateQuestionsTable extends Migration
             $table->text('question')->nullable();
             $table->boolean('essay')->default(false);
             $table->text('answer')->nullable();
+            $table->integer('timer')->nullable();
             $table->integer('points')->nullable();
             $table->timestamps();
         });

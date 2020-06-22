@@ -20,6 +20,8 @@ class CreateParticipantProjectsTable extends Migration
             $table->string('status')->nullable();
             $table->string('project_link')->nullable();
             $table->text('project_upload')->nullable();
+            $table->text('text')->nullable();
+            $table->text('points')->nullable();
             $table->boolean('correct')->nullable();
             $table->timestamps();
         });

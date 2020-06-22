@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api\Instructor;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\ApiController;
 use App\Models\Module;
 use App\Http\Requests\Instructor\ModuleCreateFormRequest;
 use App\Http\Requests\Instructor\ModuleUpdateFormRequest;
 
-class ModuleController extends Controller
+class ModuleController extends ApiController
 {
      /**
     * @OA\Post(

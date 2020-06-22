@@ -4,6 +4,9 @@ namespace App\Http\Resources\Course;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\Topic\TopicResource;
+use App\Http\Resources\Instructor\InstructorResource;
+use App\Http\Resources\Module\ModuleResource;
+use App\Http\Resources\Participant\ParticipantCourseResource;
 
 class CourseResource extends JsonResource
 {
@@ -30,7 +33,10 @@ class CourseResource extends JsonResource
             'price' => $this->price,
             'availablilty' => $this->availablilty,
             'modules' => ModuleResource::collection($this->modules),
-            'participants' => ParticipantCourseResource::collection($this->courseParticipants),
+            'projects' => ProjectResource::collection($this->projects),
+            'materials' => ProjectResource::collection($this->materials),
+            'quizes' => ProjectResource::collection($this->quiz),
+            'participants' => ParticipantCourseResource::collection($this->participantCourses),
         ];
     }
 }

@@ -141,8 +141,13 @@ class CourseCreateFormRequest extends FormRequest
     public $duration;
 
     /**
+     * @OA\Property(
+     *      title="Free Course ?",
+     *      description="Free Course",
+     *      example="false"
+     * )
+     *
      * @var int
-     * @OA\Property()
      */
     public $free;
 
@@ -205,7 +210,7 @@ class CourseCreateFormRequest extends FormRequest
             'end_date' => 'string|max:255',
             'type' => 'string|max:255',
             'duration' => 'int',
-            'free' => 'boolean',
+            'free' => 'boolean|required',
             'price' => 'int',
             'availablilty' => 'string|max:255',
             'category_id' => 'required|string|exists:categories,id',

@@ -17,6 +17,28 @@ use Illuminate\Foundation\Http\FormRequest;
 class ParticipantTopicCreateFormRequest extends FormRequest
 {
     /**
+     * @OA\Property(
+     *      title="Topic id",
+     *      description="Topic id",
+     *      example="1"
+     * )
+     *
+     * @var int
+     */
+    public $project_id;
+
+    /**
+     * @OA\Property(
+     *      title="Status",
+     *      description="Status",
+     *      example="Opened/Closed"
+     * )
+     *
+     * @var string
+     */
+    public $staus;
+
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -34,7 +56,8 @@ class ParticipantTopicCreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'topic_id' => 'required|int|exists:topics,id',
+            'status' => 'required|string',
         ];
     }
 }

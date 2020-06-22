@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\Instructor;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\ApiController;
 use Illuminate\Http\Request;
 
 class ParticipantTopic extends ApiController
@@ -185,54 +185,6 @@ class ParticipantTopic extends ApiController
         $model->save();
 
         return $this->showMessage('topic updated');
-    }
-
-     /**
-    * @OA\Delete(
-    *      path="/api/v1/instructor/participant-topic/{id}",
-    *      operationId="deleteInstructorParticipantTopic",
-    *      tags={"instructor"},
-    *      summary="delete a participant's topic ",
-    *      description="delete a participant's topic ",
-    *      
-     *      @OA\Parameter(
-     *          name="id",
-     *          description="ParticipantTopic ID",
-     *          required=true,
-     *          in="path",
-     *          @OA\Schema(
-     *              type="integer"
-     *          )
-     *      ),
-     *      
-    *      @OA\Response(
-    *          response=200,
-    *          description="Successful signin",
-    *          @OA\MediaType(
-    *             mediaType="application/json",
-    *         ),
-    *       ),
-    *      @OA\Response(
-    *          response=400,
-    *          description="Bad Request"
-    *      ),
-    *      @OA\Response(
-    *          response=401,
-    *          description="Unauthenticated",
-    *      ),
-    *      @OA\Response(
-    *          response=403,
-    *          description="Forbidden"
-    *      ),
-    *      security={ {"bearerAuth": {}} },
-    * )
-    */
-
-    public function destroy($id)
-    {
-        $model = ParticipantTopic::findOrFail($id);
-        $model->delete();
-        return $this->showMessage('topic deleted');
     }
 }
 

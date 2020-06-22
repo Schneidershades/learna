@@ -18,6 +18,7 @@ class CreateParticipantQuestionsTable extends Migration
             $table->foreignId('question_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('status')->nullable();
+            $table->integer('point')->nullable();
             $table->timestamps();
         });
     }

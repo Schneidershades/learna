@@ -20,9 +20,14 @@ class CreateProjectsTable extends Migration
             $table->string('name')->nullable();
             $table->text('description')->nullable();
             $table->date('deadline')->nullable();
+            $table->integer('timer')->nullable();
             $table->text('points')->nullable();
             $table->text('link')->nullable();
             $table->text('upload')->nullable();
+            $table->boolean('submitted')->default(false);
+            $table->boolean('satisfactory')->default(false);
+            $table->boolean('comment')->default(false);
+            $table->string('status')->default('open');
             $table->timestamps();
         });
     }

@@ -23,7 +23,7 @@ class TopicMaterialCreateFormRequest extends FormRequest
      *
      * @var int
      */
-    public $materable_id;
+    public $materiable_id;
 
      /**
      * @OA\Property(
@@ -34,7 +34,7 @@ class TopicMaterialCreateFormRequest extends FormRequest
      *
      * @var string
      */
-    public $materable_type;
+    public $materiable_type;
 
     /**
      * @OA\Property(
@@ -77,8 +77,8 @@ class TopicMaterialCreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'materable_id' => 'required|int',
-            'materable_type' => 'required|string|max:255|in:Topic,Module,Course',
+            'materiable_id' => 'required|int',
+            'materiable_type' => 'required|string|max:255|in:Topic,Module,Course',
             'link' => 'required|string',
             'upload' => 'file',
         ];

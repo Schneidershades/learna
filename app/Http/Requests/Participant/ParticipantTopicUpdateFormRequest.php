@@ -17,6 +17,28 @@ use Illuminate\Foundation\Http\FormRequest;
 class ParticipantTopicUpdateFormRequest extends FormRequest
 {
     /**
+     * @OA\Property(
+     *      title="Quiz id",
+     *      description="Quiz id",
+     *      example="1"
+     * )
+     *
+     * @var int
+     */
+    public $topic_id;
+
+    /**
+     * @OA\Property(
+     *      title="Status",
+     *      description="Status",
+     *      example="Opened/Closed"
+     * )
+     *
+     * @var string
+     */
+    public $staus;
+    
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -34,7 +56,8 @@ class ParticipantTopicUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'topic_id' => 'required|int|exists:topics,id',
+            'status' => 'required|string',
         ];
     }
 }

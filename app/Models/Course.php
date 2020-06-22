@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\ParticipantCourse;
 use App\Models\Payment;
 use App\Models\Project;
+use App\Models\Module;
 use App\Models\Quiz;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Resources\Course\CourseResource;
@@ -18,6 +19,11 @@ class Course extends Model
     public $oneItem = CourseResource::class;
     public $allItems = CourseCollection::class;
 
+    public function modules()
+    {
+        return $this->hasMany(Module::class);
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -25,7 +31,7 @@ class Course extends Model
 
     public function instructor()
     {
-    	return $this->belongsTo(Instructor::class);
+    	return $this->belongsTo(Instructor::class, 'user_id');
     }
 
     public function topics()
@@ -46,6 +52,11 @@ class Course extends Model
     public function quizzes()
     {
         return $this->morphMany(Quiz::class, 'quizable');
+    }
+
+    public function materials()
+    {
+        return $this->morphMany(Material::class, 'materiable');
     }
 
     public function payments()

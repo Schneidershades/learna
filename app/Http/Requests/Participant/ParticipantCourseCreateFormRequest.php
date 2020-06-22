@@ -16,6 +16,28 @@ use Illuminate\Foundation\Http\FormRequest;
 class ParticipantCourseCreateFormRequest extends FormRequest
 {
     /**
+     * @OA\Property(
+     *      title="course id",
+     *      description="course id",
+     *      example="1"
+     * )
+     *
+     * @var int
+     */
+    public $course_id;
+
+    /**
+     * @OA\Property(
+     *      title="Course Status",
+     *      description="Course Status",
+     *      example="Opened/Closed"
+     * )
+     *
+     * @var string
+     */
+    public $staus;
+
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -33,7 +55,8 @@ class ParticipantCourseCreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'course_id' => 'required|int|exists:courses,id',
+            'status' => 'required|string',
         ];
     }
 }

@@ -16,6 +16,29 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ParticipantQuizCreateFormRequest extends FormRequest
 {
+
+    /**
+     * @OA\Property(
+     *      title="Quiz id",
+     *      description="Quiz id",
+     *      example="1"
+     * )
+     *
+     * @var int
+     */
+    public $quiz_id;
+
+    /**
+     * @OA\Property(
+     *      title="Status",
+     *      description="Status",
+     *      example="Opened/Closed"
+     * )
+     *
+     * @var string
+     */
+    public $staus;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -34,7 +57,8 @@ class ParticipantQuizCreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'quiz_id' => 'required|int|exists:quizzes,id',
+            'status' => 'required|string',
         ];
     }
 }

@@ -19,6 +19,9 @@ class TopicResource extends JsonResource
             'name' => $this->name,
             'description' => $this->description,
             'seconds' => $this->seconds,
+            'projects' => ProjectResource::collection($this->projects),
+            'materials' => ProjectResource::collection($this->materials),
+            'quizes' => ProjectResource::collection($this->quiz),
         ];
     }
 }

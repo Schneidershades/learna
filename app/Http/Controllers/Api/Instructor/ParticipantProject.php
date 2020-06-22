@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\Instructor;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\ApiController;
 use Illuminate\Http\Request;
 
 class ParticipantProject extends ApiController
@@ -185,53 +185,5 @@ class ParticipantProject extends ApiController
         $model->save();
 
         return $this->showMessage('project updated');
-    }
-
-     /**
-    * @OA\Delete(
-    *      path="/api/v1/instructor/participant-project/{id}",
-    *      operationId="deleteInstructorParticipantProject",
-    *      tags={"instructor"},
-    *      summary="delete a participant's project ",
-    *      description="delete a participant's project ",
-    *      
-     *      @OA\Parameter(
-     *          name="id",
-     *          description="ParticipantProject ID",
-     *          required=true,
-     *          in="path",
-     *          @OA\Schema(
-     *              type="integer"
-     *          )
-     *      ),
-     *      
-    *      @OA\Response(
-    *          response=200,
-    *          description="Successful signin",
-    *          @OA\MediaType(
-    *             mediaType="application/json",
-    *         ),
-    *       ),
-    *      @OA\Response(
-    *          response=400,
-    *          description="Bad Request"
-    *      ),
-    *      @OA\Response(
-    *          response=401,
-    *          description="Unauthenticated",
-    *      ),
-    *      @OA\Response(
-    *          response=403,
-    *          description="Forbidden"
-    *      ),
-    *      security={ {"bearerAuth": {}} },
-    * )
-    */
-
-    public function destroy($id)
-    {
-        $model = ParticipantProject::findOrFail($id);
-        $model->delete();
-        return $this->showMessage('project deleted');
     }
 }

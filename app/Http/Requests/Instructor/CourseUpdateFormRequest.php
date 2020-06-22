@@ -138,9 +138,15 @@ class CourseUpdateFormRequest extends FormRequest
      */
     public $duration;
 
+
     /**
+     * @OA\Property(
+     *      title="Free Course ?",
+     *      description="Free Course",
+     *      example="false"
+     * )
+     *
      * @var int
-     * @OA\Property()
      */
     public $free;
 

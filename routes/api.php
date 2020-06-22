@@ -15,6 +15,7 @@ Route::prefix('v1')->group(function () {
 
 	Route::group(['prefix' => 'instructor', 'namespace' => 'Api\Instructor'], function(){
 		Route::resource('instructor-course', 'CourseController');
+        Route::resource('instructor-module', 'ModuleController');
     	Route::resource('instructor-profile', 'InstructorController');
     	Route::resource('instructor-multiple-choice', 'MultipleChoiceController');
     	Route::resource('instructor-project', 'ProjectController');
@@ -29,7 +30,11 @@ Route::prefix('v1')->group(function () {
     });
 
 	Route::group(['prefix' => 'participant', 'namespace' => 'Api\Participant'], function(){
-		
+		Route::resource('participant-course', 'ParticipantCourseController');
+        Route::resource('participant-project', 'ParticipantProjectController');
+        Route::resource('participant-question', 'ParticipantQuestionController');
+        Route::resource('participant-quiz', 'ParticipantQuizController');
+        Route::resource('participant-topic', 'ParticipantTopicController');
 	});
 
 });

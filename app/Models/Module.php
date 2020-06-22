@@ -6,9 +6,14 @@ use App\Models\Topic;
 use App\Models\Course;
 use App\Models\ParticipantModule;
 use Illuminate\Database\Eloquent\Model;
+use App\Http\Resources\Module\ModuleResource;
+use App\Http\Resources\Module\ModuleCollection;
 
 class Module extends Model
 {
+    public $oneItem = ModuleResource::class;
+    public $allItems = ModuleCollection::class;
+
     public function course()
     {
     	return $this->belongsTo(Course::class);
@@ -16,7 +21,7 @@ class Module extends Model
 
     public function topics()
     {
-    	return $this->hasMany(Topics::class);
+    	return $this->hasMany(Topic::class);
     }
 
     public function projects()
