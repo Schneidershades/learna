@@ -15,7 +15,7 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('projectable_id')->constrained()->onDelete('cascade');
+            $table->integer('projectable_id')->nullable();
             $table->string('projectable_type')->nullable();
             $table->string('name')->nullable();
             $table->text('description')->nullable();

@@ -15,7 +15,7 @@ class CreateMaterialsTable extends Migration
     {
         Schema::create('materials', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('materiable_id')->constrained()->onDelete('cascade');
+            $table->integer('materiable_id')->nullable();
             $table->string('materiable_type')->nullable();
             $table->text('link')->nullable();
             $table->text('upload')->nullable();
