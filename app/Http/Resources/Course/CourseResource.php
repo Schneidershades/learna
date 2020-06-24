@@ -7,7 +7,7 @@ use App\Http\Resources\Topic\TopicResource;
 use App\Http\Resources\Instructor\InstructorResource;
 use App\Http\Resources\Module\ModuleResource;
 use App\Http\Resources\Participant\ParticipantCourseResource;
-use App\Http\Resources\Project\ParticipantCourseResource;
+use App\Http\Resources\Project\ProjectResource;
 use App\Http\Resources\Material\MaterialResource;
 
 class CourseResource extends JsonResource
