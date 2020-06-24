@@ -7,6 +7,8 @@ use App\Http\Resources\Topic\TopicResource;
 use App\Http\Resources\Instructor\InstructorResource;
 use App\Http\Resources\Module\ModuleResource;
 use App\Http\Resources\Participant\ParticipantCourseResource;
+use App\Http\Resources\Project\ParticipantCourseResource;
+use App\Http\Resources\Material\MaterialResource;
 
 class CourseResource extends JsonResource
 {
@@ -34,8 +36,8 @@ class CourseResource extends JsonResource
             'availablilty' => $this->availablilty,
             'modules' => ModuleResource::collection($this->modules),
             'projects' => ProjectResource::collection($this->projects),
-            'materials' => ProjectResource::collection($this->materials),
-            'quizes' => ProjectResource::collection($this->quiz),
+            'materials' => MaterialResource::collection($this->materials),
+            // 'quizes' => ProjectResource::collection($this->quiz),
             'participants' => ParticipantCourseResource::collection($this->participantCourses),
         ];
     }

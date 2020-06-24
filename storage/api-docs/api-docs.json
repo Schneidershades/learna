@@ -804,47 +804,6 @@
                         "bearerAuth": []
                     }
                 ]
-            },
-            "delete": {
-                "tags": [
-                    "instructor"
-                ],
-                "summary": "delete a participant's course ",
-                "description": "delete a participant's course ",
-                "operationId": "deleteInstructorParticipantCourse",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ParticipantCourse ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
             }
         },
         "/api/v1/instructor/participant-project": {
@@ -989,47 +948,6 @@
                         }
                     }
                 },
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "delete": {
-                "tags": [
-                    "instructor"
-                ],
-                "summary": "delete a participant's project ",
-                "description": "delete a participant's project ",
-                "operationId": "deleteInstructorParticipantProject",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ParticipantProject ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -1218,47 +1136,6 @@
                         "bearerAuth": []
                     }
                 ]
-            },
-            "delete": {
-                "tags": [
-                    "instructor"
-                ],
-                "summary": "delete a participant's question ",
-                "description": "delete a participant's question ",
-                "operationId": "deleteInstructorParticipantQuestion",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ParticipantQuestion ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
             }
         },
         "/api/v1/instructor/participant-quiz": {
@@ -1425,47 +1302,6 @@
                         "bearerAuth": []
                     }
                 ]
-            },
-            "delete": {
-                "tags": [
-                    "instructor"
-                ],
-                "summary": "delete a participant's quiz ",
-                "description": "delete a participant's quiz ",
-                "operationId": "deleteInstructorParticipantQuiz",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ParticipantQuiz ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
             }
         },
         "/api/v1/instructor/participant-topic": {
@@ -1610,47 +1446,6 @@
                         }
                     }
                 },
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "delete": {
-                "tags": [
-                    "instructor"
-                ],
-                "summary": "delete a participant's topic ",
-                "description": "delete a participant's topic ",
-                "operationId": "deleteInstructorParticipantTopic",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ParticipantTopic ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -2698,6 +2493,172 @@
                         "application/json": {
                             "schema": {
                                 "$ref": "#/components/schemas/ParticipantCourseUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/participant/participant-payment": {
+            "get": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "Show all payments of a participant",
+                "description": "Show all payments of a participant",
+                "operationId": "allParticipantPayments",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "create a participant's payment ",
+                "description": "create a participant's payment ",
+                "operationId": "createParticipantPayment",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParticipantPaymentCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/participant/participant-payment/{id}": {
+            "get": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "show a participant's payment details ",
+                "description": "show a participant's payment details ",
+                "operationId": "showParticipantPayment",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantPayment ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "participant"
+                ],
+                "summary": "update a participant's payment ",
+                "description": "update a participant's payment ",
+                "operationId": "updateParticipantPayment",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ParticipantPayment ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParticipantPaymentUpdateFormRequest"
                             }
                         }
                     }
@@ -4499,6 +4460,22 @@
                         "example": "Opened/Closed"
                     }
                 },
+                "type": "object"
+            },
+            "ParticipantPaymentCreateFormRequest": {
+                "title": "Participant Payment Create Form Request Fields",
+                "description": "Participant Payment Create request body data",
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "ParticipantPaymentUpdateFormRequest": {
+                "title": "Participant Payment Update Form Request Fields",
+                "description": "Participant Payment Update request body data",
+                "required": [
+                    "email"
+                ],
                 "type": "object"
             },
             "ParticipantProjectCreateFormRequest": {
