@@ -9,7 +9,7 @@ Route::prefix('v1')->group(function () {
 		Route::post('register', 'UserController@register');
     	Route::post('login', 'UserController@login');
     	Route::post('logout', 'UserController@logout');
-        Route::get('logout', 'UserController@profile');
+        Route::get('profile', 'UserController@profile');
         Route::put('update', 'UserController@update');
 	});
 
