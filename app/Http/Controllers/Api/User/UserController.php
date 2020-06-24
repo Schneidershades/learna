@@ -141,6 +141,8 @@ class UserController extends ApiController
         $this->requestAndDbIntersection($request, $model, []);
 
         $model->save();
+
+        return $this->showOne($model);
     }
 
 
@@ -170,7 +172,7 @@ class UserController extends ApiController
     *          response=403,
     *          description="Forbidden"
     *      ),
-    *      security={ {"bearer": {}} },
+    *      security={ {"bearerAuth": {}} },
     * )
     */
 
@@ -205,7 +207,7 @@ class UserController extends ApiController
     *          response=403,
     *          description="Forbidden"
     *      ),
-    *      security={ {"bearer": {}} },
+    *      security={ {"bearerAuth": {}} },
     * )
     */
     public function profile(){
