@@ -31,7 +31,7 @@ class CourseResource extends JsonResource
             'testimonial_links' => $this->testimonial_links,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
-            'user' => $this->first_name,
+            'user' => $this->user->first_name,
             'type' => $this->type,
             'duration' => $this->duration,
             'price' => $this->price,
