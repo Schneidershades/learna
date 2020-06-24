@@ -4,6 +4,9 @@ namespace App\Http\Resources\Module;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\Topic\TopicResource;
+use App\Http\Resources\Quiz\QuizResource;
+use App\Http\Resources\Project\ProjectResource;
+use App\Http\Resources\Material\MaterialResource;
 
 class ModuleResource extends JsonResource
 {
@@ -20,8 +23,8 @@ class ModuleResource extends JsonResource
             'description' => $this->description,
             'topics' => TopicResource::collection($this->topics),
             'projects' => ProjectResource::collection($this->projects),
-            'materials' => ProjectResource::collection($this->materials),
-            'quizes' => ProjectResource::collection($this->quiz),
+            'materials' => MaterialResource::collection($this->materials),
+            'quizzes' => QuizResource::collection($this->quiz),
         ];
     }
 }
