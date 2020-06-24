@@ -15,6 +15,7 @@ class InstructorResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'user' => $this->user,
             'profession' => $this->profession,
             'official_email' => $this->official_email,
             'instagram' => $this->instagram,
