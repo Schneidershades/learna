@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Instructor;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\User\UserResource;
 
 class InstructorResource extends JsonResource
 {
@@ -15,7 +16,7 @@ class InstructorResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'user' => $this->user,
+            'user' => new UserResource($this->user),
             'profession' => $this->profession,
             'official_email' => $this->official_email,
             'instagram' => $this->instagram,
