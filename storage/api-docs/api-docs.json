@@ -3452,7 +3452,7 @@
                 },
                 "security": [
                     {
-                        "bearer": []
+                        "bearerAuth": []
                     }
                 ]
             },
@@ -3524,7 +3524,7 @@
                 },
                 "security": [
                     {
-                        "bearer": []
+                        "bearerAuth": []
                     }
                 ]
             }
