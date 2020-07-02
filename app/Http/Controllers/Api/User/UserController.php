@@ -131,7 +131,7 @@ class UserController extends ApiController
     *          response=403,
     *          description="Forbidden"
     *      ),
-    *      security={ {"bearer": {}} },
+    *      security={ {"bearerAuth": {}} },
     * )
     */
     public function update(UserUpdateFormRequest $request, $id){
