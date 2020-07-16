@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Traits\Api\ApiResponser;
+use App\Traits\Api\ApiResponder;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Schema;
 
 class ApiController extends Controller
 {
-    use ApiResponser;
+    use ApiResponder;
 
     public function getColumns($table)
     {       
