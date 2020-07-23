@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Api\Participant;
 
 use App\Http\Controllers\Api\ApiController;
 use Illuminate\Http\Request;
-use App\Models\ParticipantQuiz;
+use App\Models\ParticipantTopic;
 
-class ParticipantQuiz extends ApiController
+class ParticipantTopicController extends ApiController
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/participant/participant-quiz",
-    *      operationId="allParticipantQuizs",
+    *      path="/api/v1/participant/participant-topic",
+    *      operationId="allParticipantTopics",
     *      tags={"participant"},
-    *      summary="Show all quiz of a participant",
-    *      description="Show all quiz of a participant",
+    *      summary="Show all topics of a participant",
+    *      description="Show all topics of a participant",
     *      @OA\Response(
     *          response=200,
     *          description="Successful signin",
@@ -40,19 +40,19 @@ class ParticipantQuiz extends ApiController
    
     public function index()
     {
-        return $this->showAll(ParticipantQuiz::where('user_id', auth()->user()->participant->id)->get());
+        return $this->showAll(ParticipantTopic::where('user_id', auth()->user()->participant->id)->get());
     }
 
      /**
     * @OA\Post(
-    *      path="/api/v1/participant/participant-quiz",
-    *      operationId="createParticipantQuiz",
+    *      path="/api/v1/participant/participant-topic",
+    *      operationId="createParticipantTopic",
     *      tags={"participant"},
-    *      summary="create a participant's quiz ",
-    *      description="create a participant's quiz ",
+    *      summary="create a participant's topic ",
+    *      description="create a participant's topic ",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ParticipantQuizCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/ParticipantTopicCreateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -76,28 +76,28 @@ class ParticipantQuiz extends ApiController
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(ParticipantQuizCreateFormRequest $request)
+    public function store(ParticipantTopicCreateFormRequest $request)
     {
-        $model = new ParticipantQuiz;
+        $model = new ParticipantTopic;
 
         $this->requestAndDbIntersection($request, $model, []);
 
         $model->save();
 
-        return $this->showMessage('quiz created');
+        return $this->showMessage('topic created');
     }
 
      /**
     * @OA\Get(
-    *      path="/api/v1/participant/participant-quiz/{id}",
-    *      operationId="showParticipantQuiz",
+    *      path="/api/v1/participant/participant-topic/{id}",
+    *      operationId="showParticipantTopic",
     *      tags={"participant"},
-    *      summary="show a participant's quiz details ",
-    *      description="show a participant's quiz details ",
+    *      summary="show a participant's topic details ",
+    *      description="show a participant's topic details ",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="ParticipantQuiz ID",
+     *          description="ParticipantTopic ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -129,25 +129,25 @@ class ParticipantQuiz extends ApiController
    
     public function show($id)
     {
-        return $this->showOne(ParticipantQuiz::findOrFail($id), 201);
+        return $this->showOne(ParticipantTopic::findOrFail($id), 201);
     }
 
       /**
     * @OA\Put(
-    *      path="/api/v1/participant/participant-quiz/{id}",
-    *      operationId="updateParticipantQuiz",
+    *      path="/api/v1/participant/participant-topic/{id}",
+    *      operationId="updateParticipantTopic",
     *      tags={"participant"},
-    *      summary="update a participant's quiz ",
-    *      description="update a participant's quiz ",
+    *      summary="update a participant's topic ",
+    *      description="update a participant's topic ",
     *      
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ParticipantQuizUpdateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/ParticipantTopicUpdateFormRequest")
     *      ),
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="ParticipantQuiz ID",
+     *          description="ParticipantTopic ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -177,14 +177,14 @@ class ParticipantQuiz extends ApiController
     * )
     */
    
-    public function update(ParticipantQuizUpdateFormRequest $request, $id)
+    public function update(ParticipantTopicUpdateFormRequest $request, $id)
     {
-        $model = ParticipantQuiz::findOrFail($id);
+        $model = ParticipantTopic::findOrFail($id);
 
         $this->requestAndDbIntersection($request, $model, []);
 
         $model->save();
 
-        return $this->showMessage('quiz updated');
+        return $this->showMessage('topic updated');
     }
 }

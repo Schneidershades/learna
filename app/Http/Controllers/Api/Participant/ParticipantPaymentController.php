@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers\Api\Participant;
 
-use App\Http\Controllers\Api\ApiController;
-use Illuminate\Http\Request;
-use App\Models\ParticipantTopic;
+use App\Http\Controllers\Controller;
+use App\Models\Payment;
 
-class ParticipantTopic extends ApiController
+class ParticipantPaymentController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/participant/participant-topic",
-    *      operationId="allParticipantTopics",
+    *      path="/api/v1/participant/participant-payment",
+    *      operationId="allParticipantPayments",
     *      tags={"participant"},
-    *      summary="Show all topics of a participant",
-    *      description="Show all topics of a participant",
+    *      summary="Show all payments of a participant",
+    *      description="Show all payments of a participant",
     *      @OA\Response(
     *          response=200,
     *          description="Successful signin",
@@ -40,19 +39,19 @@ class ParticipantTopic extends ApiController
    
     public function index()
     {
-        return $this->showAll(ParticipantTopic::where('user_id', auth()->user()->participant->id)->get());
+        return $this->showAll(Payment::where('user_id', auth()->user()->participant->id)->get());
     }
 
      /**
     * @OA\Post(
-    *      path="/api/v1/participant/participant-topic",
-    *      operationId="createParticipantTopic",
+    *      path="/api/v1/participant/participant-payment",
+    *      operationId="createParticipantPayment",
     *      tags={"participant"},
-    *      summary="create a participant's topic ",
-    *      description="create a participant's topic ",
+    *      summary="create a participant's payment ",
+    *      description="create a participant's payment ",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ParticipantTopicCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/ParticipantPaymentCreateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -76,28 +75,28 @@ class ParticipantTopic extends ApiController
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(ParticipantTopicCreateFormRequest $request)
+    public function store(ParticipantPaymentCreateFormRequest $request)
     {
-        $model = new ParticipantTopic;
+        $model = new ParticipantPayment;
 
         $this->requestAndDbIntersection($request, $model, []);
 
         $model->save();
 
-        return $this->showMessage('topic created');
+        return $this->showMessage('payment created');
     }
 
      /**
     * @OA\Get(
-    *      path="/api/v1/participant/participant-topic/{id}",
-    *      operationId="showParticipantTopic",
+    *      path="/api/v1/participant/participant-payment/{id}",
+    *      operationId="showParticipantPayment",
     *      tags={"participant"},
-    *      summary="show a participant's topic details ",
-    *      description="show a participant's topic details ",
+    *      summary="show a participant's payment details ",
+    *      description="show a participant's payment details ",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="ParticipantTopic ID",
+     *          description="ParticipantPayment ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -129,25 +128,25 @@ class ParticipantTopic extends ApiController
    
     public function show($id)
     {
-        return $this->showOne(ParticipantTopic::findOrFail($id), 201);
+        return $this->showOne(Payment::findOrFail($id), 201);
     }
 
       /**
     * @OA\Put(
-    *      path="/api/v1/participant/participant-topic/{id}",
-    *      operationId="updateParticipantTopic",
+    *      path="/api/v1/participant/participant-payment/{id}",
+    *      operationId="updateParticipantPayment",
     *      tags={"participant"},
-    *      summary="update a participant's topic ",
-    *      description="update a participant's topic ",
+    *      summary="update a participant's payment ",
+    *      description="update a participant's payment ",
     *      
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ParticipantTopicUpdateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/ParticipantPaymentUpdateFormRequest")
     *      ),
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="ParticipantTopic ID",
+     *          description="ParticipantPayment ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -177,14 +176,14 @@ class ParticipantTopic extends ApiController
     * )
     */
    
-    public function update(ParticipantTopicUpdateFormRequest $request, $id)
+    public function update(ParticipantPaymentUpdateFormRequest $request, $id)
     {
-        $model = ParticipantTopic::findOrFail($id);
+        $model = Payment::findOrFail($id);
 
         $this->requestAndDbIntersection($request, $model, []);
 
         $model->save();
 
-        return $this->showMessage('topic updated');
+        return $this->showMessage('payment updated');
     }
 }

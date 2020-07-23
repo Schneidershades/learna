@@ -6,7 +6,7 @@ use App\Http\Controllers\Api\ApiController;
 use Illuminate\Http\Request;
 use App\Models\ParticipantProject;
 
-class ParticipantProject extends ApiController
+class ParticipantProjectController extends ApiController
 {
     /**
     * @OA\Get(

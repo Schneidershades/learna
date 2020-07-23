@@ -1,6 +1,4 @@
 <?php
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {       
@@ -30,10 +28,10 @@ Route::prefix('v1')->group(function () {
     });
 
 	Route::group(['prefix' => 'participant', 'namespace' => 'Api\Participant'], function(){
-		// Route::resource('participant-course', 'ParticipantCourseController');
-        // Route::resource('participant-project', 'ParticipantProjectController');
-        // Route::resource('participant-question', 'ParticipantQuestionController');
-        // Route::resource('participant-quiz', 'ParticipantQuizController');
+		Route::resource('participant-course', 'ParticipantCourseController');
+        Route::resource('participant-project', 'ParticipantProjectController');
+        Route::resource('participant-question', 'ParticipantQuestionController');
+        Route::resource('participant-quiz', 'ParticipantQuizController');
         Route::resource('participant-topic', 'ParticipantTopicController');
 	});
 

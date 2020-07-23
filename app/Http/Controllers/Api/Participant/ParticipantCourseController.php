@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Api\Participant;
 
 use App\Http\Controllers\Api\ApiController;
 use Illuminate\Http\Request;
-use App\Models\ParticipantQuestion;
+use App\Models\ParticipantCourse;
 
-class ParticipantQuestion extends ApiController
+class ParticipantCourseController extends ApiController
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/participant/participant-question",
-    *      operationId="allParticipantQuestions",
+    *      path="/api/v1/participant/participant-course",
+    *      operationId="allParticipantCourses",
     *      tags={"participant"},
-    *      summary="Show all question of a participant",
-    *      description="Show all question of a participant",
+    *      summary="Show all courses of a participant",
+    *      description="Show all courses of a participant",
     *      @OA\Response(
     *          response=200,
     *          description="Successful signin",
@@ -40,19 +40,19 @@ class ParticipantQuestion extends ApiController
    
     public function index()
     {
-        return $this->showAll(ParticipantQuestion::where('user_id', auth()->user()->participant->id)->get());
+        return $this->showAll(ParticipantCourse::where('user_id', auth()->user()->participant->id)->get());
     }
 
      /**
     * @OA\Post(
-    *      path="/api/v1/participant/participant-question",
-    *      operationId="createParticipantQuestion",
+    *      path="/api/v1/participant/participant-course",
+    *      operationId="createParticipantCourse",
     *      tags={"participant"},
-    *      summary="create a participant's question ",
-    *      description="create a participant's question ",
+    *      summary="create a participant's course ",
+    *      description="create a participant's course ",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ParticipantQuestionCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/ParticipantCourseCreateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -76,28 +76,28 @@ class ParticipantQuestion extends ApiController
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(ParticipantQuestionCreateFormRequest $request)
+    public function store(ParticipantCourseCreateFormRequest $request)
     {
-        $model = new ParticipantQuestion;
+        $model = new ParticipantCourse;
 
         $this->requestAndDbIntersection($request, $model, []);
 
         $model->save();
 
-        return $this->showMessage('question created');
+        return $this->showMessage('course created');
     }
 
      /**
     * @OA\Get(
-    *      path="/api/v1/participant/participant-question/{id}",
-    *      operationId="showParticipantQuestion",
+    *      path="/api/v1/participant/participant-course/{id}",
+    *      operationId="showParticipantCourse",
     *      tags={"participant"},
-    *      summary="show a participant's question details ",
-    *      description="show a participant's question details ",
+    *      summary="show a participant's course details ",
+    *      description="show a participant's course details ",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="ParticipantQuestion ID",
+     *          description="ParticipantCourse ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -129,25 +129,25 @@ class ParticipantQuestion extends ApiController
    
     public function show($id)
     {
-        return $this->showOne(ParticipantQuestion::findOrFail($id), 201);
+        return $this->showOne(ParticipantCourse::findOrFail($id), 201);
     }
 
       /**
     * @OA\Put(
-    *      path="/api/v1/participant/participant-question/{id}",
-    *      operationId="updateParticipantQuestion",
+    *      path="/api/v1/participant/participant-course/{id}",
+    *      operationId="updateParticipantCourse",
     *      tags={"participant"},
-    *      summary="update a participant's question ",
-    *      description="update a participant's question ",
+    *      summary="update a participant's course ",
+    *      description="update a participant's course ",
     *      
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ParticipantQuestionUpdateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/ParticipantCourseUpdateFormRequest")
     *      ),
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="ParticipantQuestion ID",
+     *          description="ParticipantCourse ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -177,14 +177,14 @@ class ParticipantQuestion extends ApiController
     * )
     */
    
-    public function update(ParticipantQuestionUpdateFormRequest $request, $id)
+    public function update(ParticipantCourseUpdateFormRequest $request, $id)
     {
-        $model = ParticipantQuestion::findOrFail($id);
+        $model = ParticipantCourse::findOrFail($id);
 
         $this->requestAndDbIntersection($request, $model, []);
 
         $model->save();
 
-        return $this->showMessage('question updated');
+        return $this->showMessage('course updated');
     }
 }
